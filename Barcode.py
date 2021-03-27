@@ -26,4 +26,11 @@ while camera == True: # camera will stay open for scanning (testing make sure to
             print(code.data.decode('utf-8')) # will decode and dispaly data , decoding using utf-8
 
             time.sleep(3) # set time til next scan , not gonna set for 1 second cause it scans way to quick.
+        elif code.data.decode('utf-8') not in staff_tags: # condition for invald tag
+            print("Error , please contact manager")
+        
+        else:
+            pass
+
+    
 
