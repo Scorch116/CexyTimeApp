@@ -15,4 +15,13 @@ class employee:
         #Using pack method to decare position of widgets. Fill with X will fill the window with the brackground colour for tidyness.
         title.pack(side=TOP, fill=X)
         
+        #Declaring Left side frame 
+        leftFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
+        #must "place" for visibility.
+        leftFrame.place(x=20, y=85, width=450,height=560)
+        #title for frame
+        ftitle=Label(leftFrame, text="Manage Employee",bg="blue", fg="white", font=("verdan",20,"bold"))
+        #in the frame using gird - organises the lebels in a table strutuce in the parent widget and set position
+        #colspan is column space , so i am merging 2 columns.
+        ftitle.grid(row=0,columnspan=2, padx=20, pady=20, sticky="w")
 
