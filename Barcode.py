@@ -9,3 +9,5 @@ capture = cv2.VideoCapture(0)
 capture.set(3, 640) # demension for window width
 capture.set(4, 480) # demension for window height
 camera = True
+
+staff_tags =[] # will be used to add ID of staff for testing , should be hardcoded.
