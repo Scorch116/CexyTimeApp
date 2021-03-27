@@ -25,3 +25,11 @@ class employee:
         #colspan is column space , so i am merging 2 columns.
         ftitle.grid(row=0,columnspan=2, padx=20, pady=20, sticky="w")
 
+        #label for employee ID - the employee tag in this case!
+        #using grid starting from row 2
+        L_eno=Label(leftFrame, text="empNo", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_eno.grid(row=2, column=0, padx=20, pady=10, sticky="w")
+        #textbox entry for employee ID
+        T_eno=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        T_eno.grid(row=2, column=1, padx=20 , pady= 10, sticky="w" )
+
