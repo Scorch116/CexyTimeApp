@@ -43,7 +43,15 @@ class employee:
          #Label for employee staff level - 1,2 or 3
         L_level=Label(leftFrame, text="Staff LVL", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_level.grid(row=4, column=0, padx=20, pady=10, sticky="w")
-        #textbox entry for staff level
+        #textbox entry for staff level , can be switch to dropbox
         T_level=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         T_level.grid(row=4, column=1, padx=20 , pady= 10, sticky="w" )
+
+        #Import "from tkinter import ttk" for the use of combobox!
+        #Staff gender
+        L_gender=Label(leftFrame, text="Gender", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_gender.grid(row=5, column=0, padx=20, pady=10, sticky="w")
+        C_gender=ttk.Combobox(leftFrame , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
+        C_gender['values']=("Male","Female","others") # the values to select in the combobox!
+        C_gender.grid(row=5 , column= 1 , padx=20 , pady= 10, sticky="w" )
 
