@@ -33,3 +33,10 @@ class employee:
         T_eno=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         T_eno.grid(row=2, column=1, padx=20 , pady= 10, sticky="w" )
 
+        #Label for Name entry - will start from row 3 using grid
+        L_name=Label(leftFrame, text="Name", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_name.grid(row=3, column=0, padx=20, pady=10, sticky="w")
+        #textbox entry for employee name 
+        T_name=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        T_name.grid(row=3, column=1, padx=20 , pady= 10, sticky="w" )
+
