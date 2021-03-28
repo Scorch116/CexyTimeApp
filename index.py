@@ -100,6 +100,11 @@ class employee:
 
         #button for commanding search function
         search_B = Button(rightFrame, text="Search", width=10 ,).grid(row=0 , column= 3 , padx=10 , pady=15)
+        #Button added for showing results 
+        show_B = Button(rightFrame, text="Show", width=10 ,).grid(row=0 , column= 4 , padx=10 , pady=15)
+
+        
+
         
 
 
