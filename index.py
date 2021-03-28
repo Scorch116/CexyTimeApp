@@ -98,6 +98,10 @@ class employee:
         T_search=Entry(rightFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         T_search.grid(row=0, column=2, padx=20 , pady= 10, sticky="w" )
 
+        #button for commanding search function
+        search_B = Button(rightFrame, text="Search", width=10 ,).grid(row=0 , column= 3 , padx=10 , pady=15)
+        
+
 
 
 
