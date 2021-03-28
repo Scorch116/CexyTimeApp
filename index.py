@@ -110,6 +110,11 @@ class employee:
         #must "place" for visibility.
         tableFrame.place(x=20, y=70, width=1000 ,height=450)
 
+        #scroll bar  for table 
+        #orient = the orientation , horizontial and vertical 
+        scroll_x = Scrollbar(tableFrame, orient=HORIZONTAL)
+        scroll_y = Scrollbar(tableFrame, orient=VERTICAL)
+
         
 
         
