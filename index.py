@@ -134,6 +134,16 @@ class employee:
         #display the headings 
         self.emp['show']='headings'
 
+        #set the width of each column
+        self.emp.column("empNo",width=50)
+        self.emp.column("Name",width=100)
+        self.emp.column("Stafflvl",width=50)
+        self.emp.column("Gender",width=100)
+        self.emp.column("Address",width=250)
+
+        #Publish table 
+        self.emp.pack(fill=BOTH, expand=1)
+
 
 
         
