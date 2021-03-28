@@ -125,6 +125,15 @@ class employee:
         scroll_x.config(command=self.emp.xview)
         scroll_y.config(command=self.emp.yview)
 
+        #Headings for table 
+        self.emp.heading("empNo", text="EMPNO")
+        self.emp.heading("Name", text="NAME")
+        self.emp.heading("Stafflvl", text="STAFF LEVEL")
+        self.emp.heading("Gender", text="GENDER")
+        self.emp.heading("Address", text="ADDRESS")
+        #display the headings 
+        self.emp['show']='headings'
+
 
 
         
