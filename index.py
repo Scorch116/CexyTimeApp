@@ -40,3 +40,10 @@ class employee:
         T_name=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         T_name.grid(row=3, column=1, padx=20 , pady= 10, sticky="w" )
 
+         #Label for employee staff level - 1,2 or 3
+        L_level=Label(leftFrame, text="Staff LVL", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_level.grid(row=4, column=0, padx=20, pady=10, sticky="w")
+        #textbox entry for staff level
+        T_level=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        T_level.grid(row=4, column=1, padx=20 , pady= 10, sticky="w" )
+
