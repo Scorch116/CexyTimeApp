@@ -115,9 +115,17 @@ class employee:
         scroll_x = Scrollbar(tableFrame, orient=HORIZONTAL)
         scroll_y = Scrollbar(tableFrame, orient=VERTICAL)
 
+        #put the values , before fetching values , create the columns 
+
+        self.emp=ttk.Treeview(tableFrame,columns=("empNo","Name","Stafflvl","Gender","Address"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        scroll_x.pack(side=BOTTOM, fill=X)
+        scroll_y.pack(side=RIGHT, fill=Y)
+
         #configure scroll to tablevieew
         scroll_x.config(command=self.emp.xview)
         scroll_y.config(command=self.emp.yview)
+
+
 
         
 
