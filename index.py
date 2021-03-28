@@ -55,3 +55,11 @@ class employee:
         C_gender['values']=("Male","Female","others") # the values to select in the combobox!
         C_gender.grid(row=5 , column= 1 , padx=20 , pady= 10, sticky="w" )
 
+         #label for Address - must be a text box 
+        L_Addr=Label(leftFrame, text="Address",bg="blue", fg="white", font=("verdana",12,"bold") )
+        L_Addr.grid(row = 6, column=0 , padx=20 , pady= 10, sticky="w" )
+        #text will not be a entry , I have desgined it to be a text box instead of multiple entry.
+        self.Address=Text(leftFrame, width=22,height=4, font=("verdana",12 , "bold"))
+        self.Address.grid(row=6, column=1, padx=20, pady=10, sticky = "w")
+
+
