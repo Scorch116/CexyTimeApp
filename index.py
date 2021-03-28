@@ -76,4 +76,20 @@ class employee:
         delete_B = Button(leftFrameBottomFrame, text="DELETE", width=10 ,).grid(row=0 , column= 2 , padx=10 , pady=15)
         clear_B = Button(leftFrameBottomFrame, text="CLEAR", width=10 ,).grid(row=0 , column= 3 , padx=10 , pady=15)
 
+        #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+
+        #RIGHT SIDE FRAME!
+        #Declaring RIGHT side frame 
+        rightFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
+        #must "place" for visibility.
+        rightFrame.place(x=500, y=85, width=1050,height=560)
+
+
+
+
+
+root=Tk()
+object=employee(root)
+root.mainloop()
+
 
