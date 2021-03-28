@@ -103,6 +103,13 @@ class employee:
         #Button added for showing results 
         show_B = Button(rightFrame, text="Show", width=10 ,).grid(row=0 , column= 4 , padx=10 , pady=15)
 
+        #-------------------------------------------------------------------------------------------------------------------#
+
+        #Tableview for data being dispalyed!
+        tableFrame = Frame(rightFrame, bd="4", bg="blue", relief=RIDGE)
+        #must "place" for visibility.
+        tableFrame.place(x=20, y=70, width=1000 ,height=450)
+
         
 
         
