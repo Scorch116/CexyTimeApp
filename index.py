@@ -88,11 +88,15 @@ class employee:
         #Label for employee staff level - 1,2 or 3
         L_search=Label(rightFrame, text="Search By", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_search.grid(row=0, column=0, padx=20, pady=10, sticky="w")
-        
+
         #Using the combobox for drop down search by "category" e.g. empNo , Name , address.
         C_search=ttk.Combobox(rightFrame , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
         C_search['values']=("empNo","Name","Staff LVL", "Gender", "Address") # the values to select in the combobox!
         C_search.grid(row=0 , column= 1 , padx=20 , pady= 10, sticky="w" )
+
+        #Text box , to take in search vlaue for the category.
+        T_search=Entry(rightFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        T_search.grid(row=0, column=2, padx=20 , pady= 10, sticky="w" )
 
 
 
