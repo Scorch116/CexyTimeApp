@@ -62,4 +62,18 @@ class employee:
         self.Address=Text(leftFrame, width=22,height=4, font=("verdana",12 , "bold"))
         self.Address.grid(row=6, column=1, padx=20, pady=10, sticky = "w")
 
+         #------------------------------------------------------------------------------------------------------------#
+
+        #Frame within a Frame at bottom for command buttons , Add , update , Delete and clear!
+
+        leftFrameBottomFrame = Frame(leftFrame, bd="4", bg="blue", relief=RIDGE)
+        leftFrameBottomFrame.place(x=15, y=420, width=410,height=60)
+
+        #buttons 
+        #when using grid I have start at 0 as it is a new frame.
+        add_B = Button(leftFrameBottomFrame, text="ADD", width=10 ,).grid(row=0 , column= 0 , padx=10 , pady=15)
+        update_B = Button(leftFrameBottomFrame, text="UPDATE", width=10 ,).grid(row=0 , column= 1 , padx=10 , pady=15)
+        delete_B = Button(leftFrameBottomFrame, text="DELETE", width=10 ,).grid(row=0 , column= 2 , padx=10 , pady=15)
+        clear_B = Button(leftFrameBottomFrame, text="CLEAR", width=10 ,).grid(row=0 , column= 3 , padx=10 , pady=15)
+
 
