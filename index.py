@@ -184,7 +184,20 @@ class employee:
                 Value = (empNo,name,stafflvl,gender,address)
                 mycursor.execute(insert,Value)
                 mydb.commit()
-                messagebox.askokcancel("Employee inserted")   
+                messagebox.askokcancel("Employee inserted")
+                #using "delete" to clear labels when data inserted
+                self.T_eno.delete(0,END)
+                self.T_name.delete(0,END)
+                self.T_level.delete(0,END)
+                #self.C_gender.delete('1.0',END)
+                #Will come back to this , cant clear combo box...
+                self.Address.delete(0,END)
+                
+
+
+
+
+                 
         
             
 
