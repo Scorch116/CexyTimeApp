@@ -175,6 +175,9 @@ class employee:
         else:
             insert = "INSERT INTO Person(empno, name,stafflvl, gender,address) VALUES(%s,%s,%s,%s,%s)"
             name =self.T_name.get()
+            stafflvl = self.T_level.get()
+            gender= self.C_gender.get()
+            address= self.Address.get()
 
         
 
