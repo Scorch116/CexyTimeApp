@@ -192,7 +192,7 @@ class employee:
                 #self.C_gender.delete('1.0',END)
                 #Will come back to this , cant clear combo box...
                 self.Address.delete(0,END)
-        #function to delete, only have to enter the empNo
+    #function to delete, only have to enter the empNo
     def delete(self):
         empNo= self.T_eno.get()
         Delete = "DELETE FROM Person WHERE empNo= '%s'" %(empNo)
@@ -200,11 +200,23 @@ class employee:
         mydb.commit()
         messagebox.showinfo("Info","Employee deleted")
         self.T_eno.delete(0,END)
-        self.T_name.delete(0,END)
-        self.T_level.delete(0,END)
-        #self.C_gender.delete('1.0',END)
-        #Will come back to this , cant clear combo box...
-        self.Address.delete(0,END)
+    #Function to update employee data
+    #the empNo cannot be updated!!
+    def update(self):
+        empNo= self.T_eno.get()
+        name=self.T_name.get()
+        stlvl=self.T_level.get()
+        gender=self.C_gender.get()
+        address=self.Address.get()
+        Update = "UPDATE Person set name='%s', stafflvl='%s', gender='%s',address='%s' where empNo='%s'" %(name,stlvl,gender,address,empNo)
+        mycursor.execute(Update)
+        mydb.commit()
+        messagebox.showinfo("Info","Employee Update")
+                 
+
+
+
+        
 
                 
 
