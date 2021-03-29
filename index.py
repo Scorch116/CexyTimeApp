@@ -1,5 +1,5 @@
 #Using tkinter to create a GUI application.
-from dbconnection import add
+
 from tkinter import * 
 from tkinter import ttk
 import mysql.connector
@@ -77,7 +77,7 @@ class employee:
         self.Address.grid(row=6, column=1, padx=20, pady=10, sticky = "w")
 
          #------------------------------------------------------------------------------------------------------------#
-
+        
         #Frame within a Frame at bottom for command buttons , Add , update , Delete and clear!
 
         leftFrameBottomFrame = Frame(leftFrame, bd="4", bg="blue", relief=RIDGE)
@@ -85,7 +85,7 @@ class employee:
 
         #buttons 
         #when using grid I have start at 0 as it is a new frame.
-        add_B = Button(leftFrameBottomFrame, text="ADD", width=10 ,command=add).grid(row=0 , column= 0 , padx=10 , pady=15)
+        add_B = Button(leftFrameBottomFrame, text="ADD", width=10 ,command= self.add).grid(row=0 , column= 0 , padx=10 , pady=15)
         update_B = Button(leftFrameBottomFrame, text="UPDATE", width=10 ,).grid(row=0 , column= 1 , padx=10 , pady=15)
         delete_B = Button(leftFrameBottomFrame, text="DELETE", width=10 ,).grid(row=0 , column= 2 , padx=10 , pady=15)
         clear_B = Button(leftFrameBottomFrame, text="CLEAR", width=10 ,).grid(row=0 , column= 3 , padx=10 , pady=15)
@@ -163,29 +163,29 @@ class employee:
     def add(self):
         #select statement for DB
         empNo = self.T_eno.get()
-        dbEmpNo=""
+        dbempNo=""
         select = "SELECT empNo from Person where empNo='%s'" %(empNo)
         mycursor.execute(select)
         result=mycursor.fetchall()
         #for loop to iterate through results
         for i in result:
-            dbEmpNo=i[0]
+            dbempNo=i[0]
         #if statement to to check if empNo exists and will deploy message
-        if(empNo == dbEmpNo):
+        if(empNo == dbempNo):
             messagebox.askokcancel("employee number already exisits")
         else:
             insert = "INSERT INTO Person(empno, name,stafflvl, gender,address) VALUES(%s,%s,%s,%s,%s)"
             name =self.T_name.get()
             stafflvl = self.T_level.get()
             gender= self.C_gender.get()
-            address= self.Address.get()
+            address= self.Address.get("1.0",'end-1c')
             #if statement to check values are not empty and to combined with insertstatment
             if(name !="" and stafflvl !="" and gender !="" and address != ""):
                 Value = (empNo,name,stafflvl,gender,address)
                 mycursor.execute(insert,Value)
                 mydb.commit()
-                messagebox.askokcancel("Employee inserted")
-                
+                messagebox.askokcancel("Employee inserted")   
+        
             
 
         
