@@ -198,7 +198,7 @@ class employee:
         Delete = "DELETE FROM Person WHERE empNo= '%s'" %(empNo)
         mycursor.execute(Delete)
         mydb.commit()
-        messagebox.showinfo("info","Employee dete")
+        messagebox.showinfo("Info","Employee deleted")
         self.T_eno.delete(0,END)
         self.T_name.delete(0,END)
         self.T_level.delete(0,END)
