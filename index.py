@@ -1,6 +1,18 @@
 #Using tkinter to create a GUI application.
 from tkinter import * 
 from tkinter import ttk
+import mysql.connector
+
+
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="admin",
+    passwd="admin",
+    database ="cexydatabase"
+)
+
+mycursor =mydb.cursor()
 
 #using self for easy access to all instances in the class
 #employee 
@@ -143,6 +155,10 @@ class employee:
 
         #Publish table 
         self.emp.pack(fill=BOTH, expand=1)
+
+        #----------------------------------------------#
+        #Database commands
+
 
 
 
