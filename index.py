@@ -207,7 +207,7 @@ class employee:
         name=self.T_name.get()
         stlvl=self.T_level.get()
         gender=self.C_gender.get()
-        address=self.Address.get()
+        address=self.Address.get("1.0",'end-1c')
         Update = "UPDATE Person set name='%s', stafflvl='%s', gender='%s',address='%s' where empNo='%s'" %(name,stlvl,gender,address,empNo)
         mycursor.execute(Update)
         mydb.commit()
