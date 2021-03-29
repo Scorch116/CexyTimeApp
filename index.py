@@ -86,7 +86,7 @@ class employee:
         #buttons 
         #when using grid I have start at 0 as it is a new frame.
         add_B = Button(leftFrameBottomFrame, text="ADD", width=10 ,command= self.add).grid(row=0 , column= 0 , padx=10 , pady=15)
-        update_B = Button(leftFrameBottomFrame, text="UPDATE", width=10 ,).grid(row=0 , column= 1 , padx=10 , pady=15)
+        update_B = Button(leftFrameBottomFrame, text="UPDATE", width=10 ,command=self.update).grid(row=0 , column= 1 , padx=10 , pady=15)
         delete_B = Button(leftFrameBottomFrame, text="DELETE", width=10 ,command= self.delete).grid(row=0 , column= 2 , padx=10 , pady=15)
         clear_B = Button(leftFrameBottomFrame, text="CLEAR", width=10 ,).grid(row=0 , column= 3 , padx=10 , pady=15)
 
