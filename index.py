@@ -2,6 +2,7 @@
 from tkinter import * 
 from tkinter import ttk
 import mysql.connector
+from tkinter import messagebox
 
 
 
@@ -169,6 +170,8 @@ class employee:
         for i in result:
             dbEmpNo=i[0]
         #if statement to to check if empNo exists and will deploy message
+        if(empNo == dbEmpNo):
+            messagebox.askokcancel("employee number already exisits")
         
 
 
