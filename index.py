@@ -1,4 +1,5 @@
 #Using tkinter to create a GUI application.
+from dbconnection import add
 from tkinter import * 
 from tkinter import ttk
 import mysql.connector
@@ -178,6 +179,14 @@ class employee:
             stafflvl = self.T_level.get()
             gender= self.C_gender.get()
             address= self.Address.get()
+            #if statement to check values are not empty and to combined with insertstatment
+            if(name !="" and stafflvl !="" and gender !="" and address != ""):
+                Value = (empNo,name,stafflvl,gender,address)
+                mycursor.execute(insert,Value)
+                mydb.commit()
+                messagebox.askokcancel("Employee inserted")
+                
+            
 
         
 
