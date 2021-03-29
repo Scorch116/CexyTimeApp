@@ -212,6 +212,33 @@ class employee:
         mycursor.execute(Update)
         mydb.commit()
         messagebox.showinfo("Info","Employee Update")
+        self.T_eno.delete(0,END)
+        self.T_name.delete(0,END)
+        self.T_level.delete(0,END)
+        #self.C_gender.delete('1.0',END)
+        #Will come back to this , cant clear combo box...
+        self.Address.delete(0,END)
+
+    #load data function
+    def loadData(self):
+        select = "Select * from Person"
+        mycursor.execute(select)
+        result =mycursor.fetchall()
+        empNo = ""
+        name = ""
+        stafflvl = ""
+        gender = ""
+        address = ""
+        for i in result:
+            empNo=i[0]
+            name =i[1]
+            stafflvl =i[2]
+            gender = i[3]
+            address=i[4]
+        #not sure how to finish will do more research on this!
+
+
+         
                  
 
 
