@@ -9,4 +9,7 @@ db = mysql.connector.connect(
 
 mycursor =db.cursor()
 
-mycursor.execute("CREATE TABLE Person (empno varchar(5), name varchar(20), stafflvl varchar(2), gender varchar(10), address varchar(50));")
+#mycursor.execute("CREATE TABLE Person (empno varchar(5), name varchar(20), stafflvl varchar(2), gender varchar(10), address varchar(50));")
+
+#mycursor.execute("DROP TABLE Person;")
+#print("table dropped")
