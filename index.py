@@ -42,8 +42,8 @@ class employee:
         L_eno=Label(leftFrame, text="empNo", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_eno.grid(row=2, column=0, padx=20, pady=10, sticky="w")
         #textbox entry for employee ID
-        T_eno=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        T_eno.grid(row=2, column=1, padx=20 , pady= 10, sticky="w" )
+        self.T_eno=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_eno.grid(row=2, column=1, padx=20 , pady= 10, sticky="w" )
 
         #Label for Name entry - will start from row 3 using grid
         L_name=Label(leftFrame, text="Name", bg="blue", fg="white", font=("verdana",12,"bold"))
@@ -158,6 +158,19 @@ class employee:
 
         #----------------------------------------------#
         #Database commands
+    def add(self):
+        #select statement for DB
+        empNo = self.T_eno.get()
+        dbEmpNo=""
+        select = "SELECT empNo from Person where empNo='%s'" %(empNo)
+        mycursor.execute(select)
+        result=mycursor.fetchall()
+        #for loop to iterate through results
+        for i in result:
+            dbEmpNo=i[0]
+        #if statement to to check if empNo exists and will deploy message
+        
+
 
 
 
