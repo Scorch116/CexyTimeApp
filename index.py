@@ -22,7 +22,7 @@ class employee:
     def __init__(self,root):
         self.root=root
         self.root.title("CExYtime")
-        self.root.geometry("1600x900+0+0") # size of window , width then height
+        self.root.geometry("1900x1000+0+0") # size of window , width then height
 
         #Create label for title in frame 
         title = Label(self.root, text="CExYtime employee system", font=("verdana",40,"bold"), bg="blue", fg="white")
@@ -222,6 +222,7 @@ class employee:
     #load data function
     def loadData(self):
         
+
         select = "Select * from Person"
         mycursor.execute(select)
         result =mycursor.fetchall()
@@ -237,6 +238,10 @@ class employee:
             gender = i[3]
             address=i[4]
             self.emp.insert("",'end',text=empNo,values=(empNo,name,stafflvl,gender,address))
+        
+        mydb.commit()
+        mydb.close()
+        
         #not sure how to finish will do more research on this!
 
 
