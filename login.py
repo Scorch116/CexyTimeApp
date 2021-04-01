@@ -36,18 +36,23 @@ class login:
         #must "place" for visibility.
         mainFrame.place(x=650, y=85, width=600,height=700)
 
+        #declaring canvas varible for application
+        canvas = ttk.Canvas(self.root, width = 500, height = 250)
 
-
-
-
+        canvas.pack()
 
         #using the PIL library, we imported a photo onto our window and assigned it to my_img
         my_img = ImageTk.PhotoImage(Image.open("CEx logo.jpeg"))
 
+        #putting image in parameter
+        canvas.create_image(125, 20, ANCHOR = NW, image= my_img)
+
+
+
         # label widget is a standard Tkinter widget used to display a text or image on the screen
         # in this case, I assigned an image to the label and packed it onto the window
-        my_Label = ttk.Label(mainFrame, image=my_img)
-        my_Label.pack(side=LEFT,fill=BOTH)
+        #my_Label = ttk.Label(mainFrame, image=my_img)
+        #my_Label.pack(side=LEFT,fill=BOTH)
 
 
 
