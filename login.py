@@ -17,3 +17,13 @@ mydb = mysql.connector.connect(
 )
 
 mycursor =mydb.cursor()
+
+#login class , init definiton for varible access.
+class login:
+    def __init__(self,root) :
+        pass
+
+
+root=Tk()
+object=login(root)
+root.mainloop()
