@@ -32,7 +32,7 @@ class employee:
         #Declaring Left side frame 
         leftFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        leftFrame.place(x=20, y=85, width=450,height=560)
+        leftFrame.place(x=20, y=85, width=600,height=700)
         #title for frame
         ftitle=Label(leftFrame, text="Manage Employee",bg="blue", fg="white", font=("verdan",20,"bold"))
         #in the frame using gird - organises the lebels in a table strutuce in the parent widget and set position
@@ -96,7 +96,7 @@ class employee:
         #Declaring RIGHT side frame 
         rightFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        rightFrame.place(x=500, y=85, width=1050,height=560)
+        rightFrame.place(x=650, y=85, width=1200,height=700)
 
         #Label for search box
         #Label for employee staff level - 1,2 or 3
@@ -159,6 +159,14 @@ class employee:
         self.emp.pack(fill=BOTH, expand=1)
 
         #----------------------------------------------#
+        #RIGHT SIDE FRAME!
+        #Declaring RIGHT side frame 
+        BottomFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
+        #must "place" for visibility.
+        BottomFrame.place(x=20, y=800, width=1830,height=180)
+
+
+
         #Database commands
     def add(self):
         #select statement for DB
