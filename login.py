@@ -36,10 +36,18 @@ class login:
         #must "place" for visibility.
         mainFrame.place(x=650, y=85, width=600,height=700)
 
-        
 
+        #Declaring Left side frame 
+        leftFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
+        #must "place" for visibility.
+        leftFrame.place(x=20, y=85, width=300,height=300)
+        width = 50
+        height = 50
         #using the PIL library, we imported a photo onto our window and assigned it to my_img
         my_img = ImageTk.PhotoImage(Image.open("CEx logo.jpeg"))
+        my_img = my_img.resize((width,height), Image.ANTIALIAS)
+        panel = ttk.Label(leftFrame, image = my_img)
+        panel.pack()
 
         
 

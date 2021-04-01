@@ -159,11 +159,19 @@ class employee:
         self.emp.pack(fill=BOTH, expand=1)
 
         #----------------------------------------------#
-        #RIGHT SIDE FRAME!
-        #Declaring RIGHT side frame 
+        #Bottom Frame
+        #Declaring Bottom frame 
         BottomFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
-        #must "place" for visibility.
         BottomFrame.place(x=20, y=800, width=1830,height=180)
+
+        instructionTextFrame = Frame(BottomFrame,height=2,width=30)
+        instructionTextFrame.place(x=20, y=420, width=410,height=60)
+        epos = Button (instructionTextFrame,text="Epos", width=10 ,).grid(row=0 , column= 0 , padx=10 , pady=15)
+        #instructionText.grid(row=30,column=2)
+        #instructionText.pack()
+        #instructionText.insert(END, 'Test\nCexytime\n')
+
+
 
 
 
