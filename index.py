@@ -22,7 +22,7 @@ class employee:
     def __init__(self,root):
         self.root=root
         self.root.title("CExYtime")
-        self.root.geometry("1900x1000+0+0") # size of window , width then height
+        self.root.geometry("1900x700+0+0") # size of window , width then height
 
         #Create label for title in frame 
         title = Label(self.root, text="CExYtime employee system", font=("verdana",40,"bold"), bg="blue", fg="white")
@@ -32,7 +32,7 @@ class employee:
         #Declaring Left side frame 
         leftFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        leftFrame.place(x=20, y=85, width=600,height=700)
+        leftFrame.place(x=20, y=85, width=500,height=700)
         #title for frame
         ftitle=Label(leftFrame, text="Manage Employee",bg="blue", fg="white", font=("verdan",20,"bold"))
         #in the frame using gird - organises the lebels in a table strutuce in the parent widget and set position
@@ -96,7 +96,7 @@ class employee:
         #Declaring RIGHT side frame 
         rightFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        rightFrame.place(x=650, y=85, width=1200,height=700)
+        rightFrame.place(x=550, y=85, width=1200,height=700)
 
         #Label for search box
         #Label for employee staff level - 1,2 or 3
@@ -162,7 +162,7 @@ class employee:
         #Bottom Frame
         #Declaring Bottom frame 
         BottomFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
-        BottomFrame.place(x=20, y=800, width=1830,height=180)
+        BottomFrame.place(x=20, y=800, width=1730,height=180)
 
         instructionTextFrame = Frame(BottomFrame,height=2,width=30)
         instructionTextFrame.place(x=20, y=420, width=410,height=60)
