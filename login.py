@@ -8,6 +8,8 @@ import mysql.connector
 from tkinter import messagebox
 from PIL import ImageTk,Image
 
+
+
 #varibale for SQl connector
 
 mydb = mysql.connector.connect(
@@ -21,18 +23,18 @@ mycursor =mydb.cursor()
 
 #login class , init definiton for varible access.
 class login:
-    def __init__(self,root) :
-        self.root=root
-        self.root.title("CExYtime")
-        self.root.geometry("1700x1000+0+0") # size of window , width then height
+    def __init__(self,loginpg) :
+        self.loginpg=loginpg
+        self.loginpg.title("CExYtime")
+        self.loginpg.geometry("1700x1000+0+0") # size of window , width then height
 
         #Create label for title in frame 
-        title = Label(self.root, text="CExYtime Login", font=("verdana",40,"bold"), bg="blue", fg="white")
+        title = Label(self.loginpg, text="CExYtime Login", font=("verdana",40,"bold"), bg="blue", fg="white")
         #Using pack method to decare position of widgets. Fill with X will fill the window with the brackground colour for tidyness.
         title.pack(side=TOP, fill=X)
 
         #Declaring main side frame 
-        mainFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
+        mainFrame = Frame(self.loginpg, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
         mainFrame.place(x=600, y=85, width=600,height=700)
 
@@ -61,24 +63,23 @@ class login:
         loginbtn = Button(buttonFrame, text="LOGIN", width=65,height=7,command=self.login).grid(row=0 , column= 0 , padx=10 , pady=15)
         
 
-
-
-    
     def login(self):
         #declaring varibles for the username and password entry.
         username = self.T_username.get()
         password = self.T_password.get()
         self.T_username.delete(0,END)
         self.T_password.delete(0,END)
+        #conditonal statements for user login.
+        if username == 'user' and password == 'pass':
+            print("user login")
+        else:
+            messagebox.askokcancel("Error", "Login failed, Check username and password")
+            
 
-        
 
 
 
 
-      
-
-
-root=Tk()
-object=login(root)
-root.mainloop()
+loginpg=Tk()
+object=login(loginpg)
+loginpg.mainloop()
