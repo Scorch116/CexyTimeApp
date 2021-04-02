@@ -19,18 +19,19 @@ mycursor =mydb.cursor()
 #using self for easy access to all instances in the class
 #employee 
 class employee:
-    def __init__(self,root):
-        self.root=root
-        self.root.title("CExYtime")
-        self.root.geometry("1900x700+0+0") # size of window , width then height
+    
+    def __init__(self,index):
+        self.index=index
+        self.index.title("CExYtime")
+        self.index.geometry("1900x700+0+0") # size of window , width then height
 
         #Create label for title in frame 
-        title = Label(self.root, text="CExYtime employee system", font=("verdana",40,"bold"), bg="blue", fg="white")
+        title = Label(self.index, text="CExYtime employee system", font=("verdana",40,"bold"), bg="blue", fg="white")
         #Using pack method to decare position of widgets. Fill with X will fill the window with the brackground colour for tidyness.
         title.pack(side=TOP, fill=X)
         
         #Declaring Left side frame 
-        leftFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
+        leftFrame = Frame(self.index, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
         leftFrame.place(x=20, y=85, width=500,height=700)
         #title for frame
@@ -94,7 +95,7 @@ class employee:
 
         #RIGHT SIDE FRAME!
         #Declaring RIGHT side frame 
-        rightFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
+        rightFrame = Frame(self.index, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
         rightFrame.place(x=550, y=85, width=1200,height=700)
 
@@ -161,7 +162,7 @@ class employee:
         #----------------------------------------------#
         #Bottom Frame
         #Declaring Bottom frame 
-        BottomFrame = Frame(self.root, bd="4", bg="blue", relief=RIDGE)
+        BottomFrame = Frame(self.index, bd="4", bg="blue", relief=RIDGE)
         BottomFrame.place(x=20, y=800, width=1730,height=180)
 
         instructionTextFrame = Frame(BottomFrame,height=2,width=30)
@@ -275,26 +276,11 @@ class employee:
 
                  
         
-            
-
         
 
 
-
-
-
-        
-
-        
-
-
-
-
-
-
-
-root=Tk()
-object=employee(root)
-root.mainloop()
+index=Tk()
+object=employee(index)
+index.mainloop()
 
 
