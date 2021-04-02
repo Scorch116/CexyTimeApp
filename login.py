@@ -41,16 +41,16 @@ class login:
         L_username=Label(mainFrame, text="Username", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_username.grid(row=3, column=1, padx=75, pady=50, sticky="w")
         #textbox entry for username
-        T_username=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        T_username.grid(row=3, column=2, padx=25, pady= 50, sticky="w" )
+        self.T_username=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_username.grid(row=3, column=2, padx=25, pady= 50, sticky="w" )
 
         #label for password
         #using grid starting from row 4
         L_password=Label(mainFrame, text="Password", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_password.grid(row=4, column=1, padx=75, pady=10, sticky="w")
         #textbox entry for password
-        T_password=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        T_password.grid(row=4, column=2, padx=25, pady= 10, sticky="w" )
+        self.T_password=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_password.grid(row=4, column=2, padx=25, pady= 10, sticky="w" )
 
         #Frame for buttons added
 
@@ -58,14 +58,20 @@ class login:
         buttonFrame.place(x=35, y=350, width=500,height=150)
 
         #buttons
-        loginbtn = Button(buttonFrame, text="LOGIN", width=65,height=7,).grid(row=0 , column= 0 , padx=10 , pady=15)
+        loginbtn = Button(buttonFrame, text="LOGIN", width=65,height=7,command=self.login).grid(row=0 , column= 0 , padx=10 , pady=15)
         
 
 
 
     
-    def login():
-        pass
+    def login(self):
+        #declaring varibles for the username and password entry.
+        username = self.T_username.get()
+        password = self.T_password.get()
+        self.T_username.delete(0,END)
+        self.T_password.delete(0,END)
+
+        
 
 
 
