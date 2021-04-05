@@ -11,8 +11,6 @@ from tkinter import filedialog
 import os
 
 
-
-
 #varibale for SQl connector
 
 mydb = mysql.connector.connect(
@@ -56,6 +54,7 @@ class login:
         #textbox entry for password
         self.T_password=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.T_password.grid(row=4, column=2, padx=25, pady= 10, sticky="w" )
+        
 
         #Frame for buttons added
 
@@ -74,17 +73,14 @@ class login:
         self.T_username.delete(0,END)
         self.T_password.delete(0,END)
         #conditonal statements for user login.
-        select = "SELECT empNo from Person where empNo='%s'" %(username)
+        select = "SELECT empno from person where empno='%s'" %(username)
         mycursor.execute(select)
         result=mycursor.fetchall()
         #Ill keep user and pass for testing purposes and ease of access for now.
         #For loop added to run through the results of DB
         for i in result:
             username=i[0]
-            if username == 'user' and password == 'pass':
-                print("user login")
-                from index import employee
-            elif username == username and password == 'pass':
+            if username == 'h123' and password == 'pass':
                 print("user login")
                 from index import employee
             else:
