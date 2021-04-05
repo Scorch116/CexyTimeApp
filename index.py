@@ -19,7 +19,7 @@ mycursor =mydb.cursor()
 #using self for easy access to all instances in the class
 #employee 
 class employee:
-    
+
     def __init__(self,index):
         self.index=index
         self.index.title("CExYtime")
@@ -240,7 +240,7 @@ class employee:
     def loadData(self):
         
 
-        select = "Select * from Person"
+        select = "Select empno,name,stafflvl,gender,address from Person"
         mycursor.execute(select)
         result =mycursor.fetchall()
         empNo = ""
@@ -264,21 +264,6 @@ class employee:
 
          
                  
-
-
-
-        
-
-                
-
-
-
-
-                 
-        
-        
-
-
 index=Tk()
 object=employee(index)
 index.mainloop()
