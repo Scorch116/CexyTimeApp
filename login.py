@@ -7,6 +7,9 @@ from tkinter import ttk
 import mysql.connector
 from tkinter import messagebox
 from PIL import ImageTk,Image
+from tkinter import filedialog
+import os
+
 
 
 
@@ -63,6 +66,7 @@ class login:
         loginbtn = Button(buttonFrame, text="LOGIN", width=65,height=7,command=self.login).grid(row=0 , column= 0 , padx=10 , pady=15)
         
 
+
     def login(self):
         #declaring varibles for the username and password entry.
         username = self.T_username.get()
@@ -72,13 +76,12 @@ class login:
         #conditonal statements for user login.
         if username == 'user' and password == 'pass':
             print("user login")
+            from index import employee
         else:
             messagebox.askokcancel("Error", "Login failed, Check username and password")
-            
 
 
-
-
+    
 
 loginpg=Tk()
 object=login(loginpg)
