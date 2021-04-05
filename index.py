@@ -51,39 +51,39 @@ class employee:
         #label for employee ID - the employee tag in this case!
         #using grid starting from row 2
         L_password=Label(leftFrame, text="Password", bg="blue", fg="white", font=("verdana",12,"bold"))
-        L_password.grid(row=2, column=0, padx=20, pady=10, sticky="w")
+        L_password.grid(row=3, column=0, padx=20, pady=10, sticky="w")
         #textbox entry for employee ID
         self.T_password=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        self.T_password.grid(row=2, column=1, padx=20 , pady= 10, sticky="w" )
+        self.T_password.grid(row=3, column=1, padx=20 , pady= 10, sticky="w" )
 
         #Label for Name entry - will start from row 3 using grid
         L_name=Label(leftFrame, text="Name", bg="blue", fg="white", font=("verdana",12,"bold"))
-        L_name.grid(row=3, column=0, padx=20, pady=10, sticky="w")
+        L_name.grid(row=4, column=0, padx=20, pady=10, sticky="w")
         #textbox entry for employee name 
         self.T_name=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        self.T_name.grid(row=3, column=1, padx=20 , pady= 10, sticky="w" )
+        self.T_name.grid(row=4, column=1, padx=20 , pady= 10, sticky="w" )
 
          #Label for employee staff level - 1,2 or 3
         L_level=Label(leftFrame, text="Staff LVL", bg="blue", fg="white", font=("verdana",12,"bold"))
-        L_level.grid(row=4, column=0, padx=20, pady=10, sticky="w")
+        L_level.grid(row=5, column=0, padx=20, pady=10, sticky="w")
         #textbox entry for staff level , can be switch to dropbox
         self.T_level=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        self.T_level.grid(row=4, column=1, padx=20 , pady= 10, sticky="w" )
+        self.T_level.grid(row=5, column=1, padx=20 , pady= 10, sticky="w" )
 
         #Import "from tkinter import ttk" for the use of combobox!
         #Staff gender
         L_gender=Label(leftFrame, text="Gender", bg="blue", fg="white", font=("verdana",12,"bold"))
-        L_gender.grid(row=5, column=0, padx=20, pady=10, sticky="w")
+        L_gender.grid(row=6, column=0, padx=20, pady=10, sticky="w")
         self.C_gender=ttk.Combobox(leftFrame , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
         self.C_gender['values']=("Male","Female","others") # the values to select in the combobox!
-        self.C_gender.grid(row=5 , column= 1 , padx=20 , pady= 10, sticky="w" )
+        self.C_gender.grid(row=6 , column= 1 , padx=20 , pady= 10, sticky="w" )
 
          #label for Address - must be a text box 
         L_Addr=Label(leftFrame, text="Address",bg="blue", fg="white", font=("verdana",12,"bold") )
-        L_Addr.grid(row = 6, column=0 , padx=20 , pady= 10, sticky="w" )
+        L_Addr.grid(row = 7, column=0 , padx=20 , pady= 10, sticky="w" )
         #text will not be a entry , I have desgined it to be a text box instead of multiple entry.
         self.Address=Text(leftFrame, width=22,height=4, font=("verdana",12 , "bold"))
-        self.Address.grid(row=6, column=1, padx=20, pady=10, sticky = "w")
+        self.Address.grid(row=7, column=1, padx=20, pady=10, sticky = "w")
 
          #------------------------------------------------------------------------------------------------------------#
         
