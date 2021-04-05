@@ -83,9 +83,12 @@ class login:
             if username == 'h123' and password == 'pass':
                 print("Manager login")
                 from index import employee
-                loginpg.destroy()
+            elif username != 'h123' and password != 'pass':
+                messagebox.askokcancel("Error", "Login failed, Check username and password")
             else:
                 messagebox.askokcancel("Error", "Login failed, Check username and password")
+
+       
 
 
     
