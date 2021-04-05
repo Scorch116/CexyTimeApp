@@ -236,7 +236,7 @@ class employee:
         stlvl=self.T_level.get()
         gender=self.C_gender.get()
         address=self.Address.get("1.0",'end-1c')
-        Update = "UPDATE Person set password='%s;, name='%s', stafflvl='%s', gender='%s',address='%s' where empNo='%s'" %(password,name,stlvl,gender,address,empNo)
+        Update = "UPDATE Person set password='%s', name='%s', stafflvl='%s', gender='%s',address='%s' where empNo='%s'" %(password,name,stlvl,gender,address,empNo)
         mycursor.execute(Update)
         mydb.commit()
         messagebox.showinfo("Info","Employee Update")
@@ -246,7 +246,7 @@ class employee:
         self.T_level.delete(0,END)
         #self.C_gender.delete('1.0',END)
         #Will come back to this , cant clear combo box...
-        self.Address.delete(0,END)
+        #self.Address.delete(0,END)
 
     #load data function
     def loadData(self):

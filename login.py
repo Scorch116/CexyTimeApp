@@ -73,7 +73,7 @@ class login:
         self.T_username.delete(0,END)
         self.T_password.delete(0,END)
         #conditonal statements for user login.
-        select = "SELECT empno from person where empno='%s'" %(username)
+        select = "SELECT empNo from Person where empNo='%s'" %(username)
         mycursor.execute(select)
         result=mycursor.fetchall()
         #Ill keep user and pass for testing purposes and ease of access for now.
@@ -81,7 +81,7 @@ class login:
         for i in result:
             username=i[0]
             if username == 'h123' and password == 'pass':
-                print("user login")
+                print("Manager login")
                 from index import employee
             else:
                 messagebox.askokcancel("Error", "Login failed, Check username and password")
