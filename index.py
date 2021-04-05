@@ -48,6 +48,14 @@ class employee:
         self.T_eno=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.T_eno.grid(row=2, column=1, padx=20 , pady= 10, sticky="w" )
 
+        #label for employee ID - the employee tag in this case!
+        #using grid starting from row 2
+        L_password=Label(leftFrame, text="Password", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_password.grid(row=2, column=0, padx=20, pady=10, sticky="w")
+        #textbox entry for employee ID
+        self.T_password=Entry(leftFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_password.grid(row=2, column=1, padx=20 , pady= 10, sticky="w" )
+
         #Label for Name entry - will start from row 3 using grid
         L_name=Label(leftFrame, text="Name", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_name.grid(row=3, column=0, padx=20, pady=10, sticky="w")
@@ -191,19 +199,21 @@ class employee:
         if(empNo == dbempNo):
             messagebox.askokcancel("employee number already exisits")
         else:
-            insert = "INSERT INTO Person(empno, name,stafflvl, gender,address) VALUES(%s,%s,%s,%s,%s)"
+            insert = "INSERT INTO Person(empno,password, name,stafflvl, gender,address) VALUES(%s,%s,%s,%s,%s,%s)"
+            password=self.T_password.get()
             name =self.T_name.get()
             stafflvl = self.T_level.get()
             gender= self.C_gender.get()
             address= self.Address.get("1.0",'end-1c')
             #if statement to check values are not empty and to combined with insertstatment
-            if(name !="" and stafflvl !="" and gender !="" and address != ""):
-                Value = (empNo,name,stafflvl,gender,address)
+            if(password !="" and name !="" and stafflvl !="" and gender !="" and address != ""):
+                Value = (empNo,password,name,stafflvl,gender,address)
                 mycursor.execute(insert,Value)
                 mydb.commit()
                 messagebox.askokcancel("Employee inserted")
                 #using "delete" to clear labels when data inserted
                 self.T_eno.delete(0,END)
+                self.T_password.delete(0,END)
                 self.T_name.delete(0,END)
                 self.T_level.delete(0,END)
                 #self.C_gender.delete('1.0',END)
@@ -221,15 +231,17 @@ class employee:
     #the empNo cannot be updated!!
     def update(self):
         empNo= self.T_eno.get()
+        password=self.T_password.get()
         name=self.T_name.get()
         stlvl=self.T_level.get()
         gender=self.C_gender.get()
         address=self.Address.get("1.0",'end-1c')
-        Update = "UPDATE Person set name='%s', stafflvl='%s', gender='%s',address='%s' where empNo='%s'" %(name,stlvl,gender,address,empNo)
+        Update = "UPDATE Person set password='%s;, name='%s', stafflvl='%s', gender='%s',address='%s' where empNo='%s'" %(password,name,stlvl,gender,address,empNo)
         mycursor.execute(Update)
         mydb.commit()
         messagebox.showinfo("Info","Employee Update")
         self.T_eno.delete(0,END)
+        self.T_password.delete(0,END)
         self.T_name.delete(0,END)
         self.T_level.delete(0,END)
         #self.C_gender.delete('1.0',END)
