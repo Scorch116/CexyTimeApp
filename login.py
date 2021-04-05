@@ -52,7 +52,7 @@ class login:
         L_password=Label(mainFrame, text="Password", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_password.grid(row=4, column=1, padx=75, pady=10, sticky="w")
         #textbox entry for password
-        self.T_password=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_password=Entry(mainFrame,show="*",font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.T_password.grid(row=4, column=2, padx=25, pady= 10, sticky="w" )
         
 
@@ -83,6 +83,7 @@ class login:
             if username == 'h123' and password == 'pass':
                 print("Manager login")
                 from index import employee
+                loginpg.destroy()
             else:
                 messagebox.askokcancel("Error", "Login failed, Check username and password")
 
