@@ -83,6 +83,9 @@ class login:
             if username == 'h123' and password == 'pass':
                 print("Manager login")
                 from index import employee
+            elif username == username and password == 'pass':
+                print("staff login")
+                from staffindex import rota
             elif username != 'h123' and password != 'pass':
                 messagebox.askokcancel("Error", "Login failed, Check username and password")
             else:
