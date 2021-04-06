@@ -2,7 +2,8 @@ import datetime
 import time
 import tkinter as tk
 from PIL import ImageTk,Image
-import staffindex
+
+
 
 
 # global declaration of time variables so that all functions can access them
@@ -32,17 +33,3 @@ def returnTime():
 # after the label object has been initialized, we do it this way
 # We update the time by recursively calling the function every one second
 
-#making a clock funtion to displaying in GUI
-def clock():
-    
-    hour = time.strftime("%H")
-    minute = time.strftime("%M")
-    second = time.strftime("%S")
-
-    time_Label.config(text=hour + ":" + minute + ":" +second)
-    time_Label.after(1000,clock)
-
-# here we initialize a label object called time_label, and give it parameters
-# pady pushes its placement downward by the specified amount
-time_Label = tk.Label(window, text='', font=('Verdana',50), fg='white', bg='black')
-time_Label.pack(pady=10)
