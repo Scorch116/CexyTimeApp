@@ -26,10 +26,11 @@ class createRota:
         title = Label(self.createIndex, text="CExYtime Rota Creation", font=("verdana",40,"bold"), bg="blue", fg="white")
         #pack method to decare position of widgets,fill with X will fill the window with the brackground colour for tidyness.
         title.pack(side=TOP, fill=X)
-
+        
+        #------------frame for displaying rota data--------------#
         rotaCreateFrame = Frame(self.createIndex, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        rotaCreateFrame.place(x=100, y=200, width=1700,height=600)
+        rotaCreateFrame.place(x=100, y=100, width=1700,height=600)
 
         #scroll bar  for table 
         #orient = the orientation , horizontial and vertical 
@@ -44,6 +45,22 @@ class createRota:
         #configure scroll to tablevieew
         scroll_x.config(command=self.createrotaview.xview)
         scroll_y.config(command=self.createrotaview.yview)
+
+        #These headings may change
+        #Headings for table 
+        self.createrotaview.heading("name", text="Name")
+        self.createrotaview.heading("Monday", text="MONDAY")
+        self.createrotaview.heading("Tuesday", text="TUESDAY")
+        self.createrotaview.heading("Wednesday", text="WEDNESDAY")
+        self.createrotaview.heading("Thursday", text="THURSDAY")
+        self.createrotaview.heading("Friday", text="FRIDAY")
+        self.createrotaview.heading("Saturday", text="SATURDAY")
+        self.createrotaview.heading("Sunday", text="SUNDAY")
+        #DISPLAY THE HEADINGS
+        self.createrotaview['show']='headings'
+
+        #publish table
+        self.createrotaview.pack(fill=BOTH,expand=1)
 
 
 

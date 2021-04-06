@@ -269,7 +269,7 @@ class employee:
         # .close() will destroy connection between application and local sever 3306
         
         #not sure how to finish will do more research on this!
-    def loadcreateRota():
+    def loadcreateRota(self):
         from createrota import createRota
         print("Create rota loaded")
 
