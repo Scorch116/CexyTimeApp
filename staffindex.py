@@ -32,7 +32,18 @@ class rota:
         #----------------------Frame for displaying data-------------------------#
         rotaFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        rotaFrame.place(x=100, y=100, width=1700,height=800)
+        rotaFrame.place(x=100, y=100, width=1700,height=700)
+
+        #--------------------Clock in button-----------------#
+
+        clockinFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
+        #must "place" for visibility.
+        clockinFrame.place(x=100, y=820, width=1700,height=150)
+        #button for clocking in 
+        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 7).grid(row=0 , column= 0 , padx=10 , pady=15)
+
+
+
 
 
 
