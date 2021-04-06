@@ -6,8 +6,7 @@ from tkinter import *
 from tkinter import ttk
 import mysql.connector
 from tkinter import messagebox
-import time
-import datetime
+
 
 #sql connector 
 mydb = mysql.connector.connect(
@@ -19,13 +18,7 @@ mydb = mysql.connector.connect(
 
 mycursor =mydb.cursor()
 
-# global declaration of time variables so that all functions can access them
-todaysDate = datetime.date.today()
-hour = time.strftime("%I")
-minute = time.strftime("%M")
-second = time.strftime("%S")
-AM_or_PM = time.strftime("%p")
-which_day = time.strftime("%A")
+
 
 class rota:
 
