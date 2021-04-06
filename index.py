@@ -189,7 +189,7 @@ class employee:
         #select statement for DB
         empNo = self.T_eno.get()
         dbempNo=""
-        select = "SELECT empNo from Person where empNo='%s'" %(empNo)
+        select = "SELECT empno from Person where empno='%s'" %(empNo)
         mycursor.execute(select)
         result=mycursor.fetchall()
         #for loop to iterate through results
@@ -218,11 +218,11 @@ class employee:
                 self.T_level.delete(0,END)
                 #self.C_gender.delete('1.0',END)
                 #Will come back to this , cant clear combo box...
-                self.Address.delete(0,END)
+                #self.Address.delete(0,END)
     #function to delete, only have to enter the empNo
     def delete(self):
         empNo= self.T_eno.get()
-        Delete = "DELETE FROM Person WHERE empNo= '%s'" %(empNo)
+        Delete = "DELETE FROM person WHERE empno= '%s'" %(empNo)
         mycursor.execute(Delete)
         mydb.commit()
         messagebox.showinfo("Info","Employee deleted")
@@ -269,7 +269,7 @@ class employee:
             self.emp.insert("",'end',text=empNo,values=(empNo,name,stafflvl,gender,address))
         
         mydb.commit()
-        mydb.close()
+        # .close() will destroy connection between application and local sever 3306
         
         #not sure how to finish will do more research on this!
 
