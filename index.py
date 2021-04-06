@@ -23,7 +23,7 @@ class employee:
     def __init__(self,index):
         self.index=index
         self.index.title("CExYtime")
-        self.index.geometry("1900x700+0+0") # size of window , width then height
+        self.index.geometry("1900x1000+0+0") # size of window , width then height
 
         #Create label for title in frame 
         title = Label(self.index, text="CExYtime employee system", font=("verdana",40,"bold"), bg="blue", fg="white")
