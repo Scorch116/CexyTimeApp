@@ -31,6 +31,20 @@ class createRota:
         #must "place" for visibility.
         rotaCreateFrame.place(x=100, y=200, width=1700,height=600)
 
+        #scroll bar  for table 
+        #orient = the orientation , horizontial and vertical 
+        scroll_x = Scrollbar(rotaCreateFrame, orient=HORIZONTAL)
+        scroll_y = Scrollbar(rotaCreateFrame, orient=VERTICAL)
+
+        #put the values , before fetching values , create the columns 
+        self.createrotaview=ttk.Treeview(rotaCreateFrame,columns=("name","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        scroll_x.pack(side=BOTTOM, fill=X)
+        scroll_y.pack(side=RIGHT, fill=Y)
+
+        #configure scroll to tablevieew
+        scroll_x.config(command=self.createrotaview.xview)
+        scroll_y.config(command=self.createrotaview.yview)
+
 
 
 createIndex=Tk()
