@@ -173,14 +173,11 @@ class employee:
         BottomFrame = Frame(self.index, bd="4", bg="blue", relief=RIDGE)
         BottomFrame.place(x=20, y=800, width=1730,height=180)
 
-        instructionTextFrame = Frame(BottomFrame,height=2,width=30)
-        instructionTextFrame.place(x=20, y=420, width=410,height=60)
-        epos = Button (instructionTextFrame,text="Epos", width=10 ,).grid(row=0 , column= 0 , padx=10 , pady=15)
-        #instructionText.grid(row=30,column=2)
-        #instructionText.pack()
-        #instructionText.insert(END, 'Test\nCexytime\n')
+        
+        epos = Button (BottomFrame,text="Epos", width=100 ,height=3).grid(row=1 , column= 5 , padx=1 , pady=15)
+        createShift = Button (BottomFrame,text="Create Cexy Shift", width=100 ,height=3,command=self.loadcreateRota).grid(row=2 , column= 5 , padx=500 , pady=15)
 
-
+        
 
 
 
@@ -272,6 +269,9 @@ class employee:
         # .close() will destroy connection between application and local sever 3306
         
         #not sure how to finish will do more research on this!
+    def loadcreateRota():
+        from createrota import createRota
+        print("Create rota loaded")
 
 
          
