@@ -62,6 +62,93 @@ class createRota:
         #publish table
         self.createrotaview.pack(fill=BOTH,expand=1)
 
+        #--------------------------Bottom frame----------------#
+        #Bottom Frame
+        #Declaring Bottom frame 
+        BottomFrame = Frame(self.createIndex, bd="4", bg="blue", relief=RIDGE)
+        BottomFrame.place(x=100, y=710, width=1700,height=280)
+
+        
+        #label for employee ID - the employee tag in this case!
+        #using grid starting from row 2
+        L_eno=Label(BottomFrame, text="empNo", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_eno.grid(row=1, column=0, padx=20, pady=10, sticky="w")
+        #textbox entry for employee ID
+        self.T_eno=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_eno.grid(row=1, column=1, padx=20 , pady= 10, sticky="w" )
+        #Label for monday
+        L_Monday=Label(BottomFrame, text="Monday", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_Monday.grid(row=1, column=9, padx=20, pady=10, sticky="w")
+        #textbox entry for Monday start time
+        self.start_Monday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.start_Monday.grid(row=1, column=10, padx=10 , pady= 20, sticky="w" )
+        #textbox entry for Monday start time
+        self.end_Monday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.end_Monday.grid(row=1, column=15, padx=10 , pady= 20, sticky="w" )
+
+        #Label for tuesday
+        L_Tuesday=Label(BottomFrame, text="Tuesday", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_Tuesday.grid(row=2, column=9, padx=20, pady=10, sticky="w")
+        #textbox entry for tuesday start time
+        self.start_tuesday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.start_tuesday.grid(row=2, column=10, padx=10 , pady= 20, sticky="w" )
+        #textbox entry for Tuesday end time
+        self.end_tuesday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.end_tuesday.grid(row=2, column=15, padx=10 , pady= 20, sticky="w" )
+
+        #Label for Wednesday
+        L_Wednesday=Label(BottomFrame, text="Wednesday", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_Wednesday.grid(row=3, column=9, padx=20, pady=10, sticky="w")
+        #textbox entry for Wednesday start time
+        self.start_wednesday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.start_wednesday.grid(row=3, column=10, padx=10 , pady= 20, sticky="w" )
+        #textbox entry for Wednesday end time
+        self.end_wednesday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.end_wednesday.grid(row=3, column=15, padx=10 , pady= 20, sticky="w" )
+
+        #Label for Thrusday
+        L_Thursday=Label(BottomFrame, text="Thursday", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_Thursday.grid(row=4, column=9, padx=20, pady=10, sticky="w")
+        #textbox entry for Thursday start time
+        self.start_Thursday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.start_Thursday.grid(row=4, column=10, padx=10 , pady= 20, sticky="w" )
+        #textbox entry for Thursday end time
+        self.end_thursday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.end_thursday.grid(row=4, column=15, padx=10 , pady= 20, sticky="w" )
+        
+
+        #Label for Friday
+        L_Friday=Label(BottomFrame, text="Friday", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_Friday.grid(row=1, column=19, padx=20, pady=10, sticky="w")
+        #textbox entry for Friday start time
+        self.start_Friday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.start_Friday.grid(row=1, column=20, padx=10 , pady= 20, sticky="w" )
+        #textbox entry for Friday end time
+        self.end_Friday=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.end_Friday.grid(row=1, column=25, padx=10 , pady= 20, sticky="w" )
+        
+
+        #Label for Saturday
+        L_sat=Label(BottomFrame, text="Saturday", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_sat.grid(row=2, column=19, padx=20, pady=10, sticky="w")
+        #textbox entry for sat start time
+        self.start_sat=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.start_sat.grid(row=2, column=20, padx=10 , pady= 20, sticky="w" )
+        #textbox entry for Friday end time
+        self.end_sat=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.end_sat.grid(row=2, column=25, padx=10 , pady= 20, sticky="w" )
+
+        #Label for Sunday
+        L_sun=Label(BottomFrame, text="Sunday", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_sun.grid(row=3, column=19, padx=20, pady=10, sticky="w")
+        #textbox entry for sun start time
+        self.start_sun=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.start_sun.grid(row=3, column=20, padx=10 , pady= 20, sticky="w" )
+        #textbox entry for sun end time
+        self.end_sun=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.end_sun.grid(row=3, column=25, padx=10 , pady= 20, sticky="w" )
+
+
 
 
 createIndex=Tk()
