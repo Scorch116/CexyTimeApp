@@ -189,12 +189,12 @@ class createRota:
             wed_start=self.start_wednesday.get()
             wed_end=self.end_wednesday.get()
             thur_start=self.start_Thursday.get()
-            thur_end=self.start_Thursday.get()
+            thur_end=self.end_thursday.get()
             fri_start=self.start_Friday.get()
             fri_end=self.end_Friday.get()
             sat_start=self.start_sat.get()
             sat_end=self.end_sat.get()
-            sun_start=self.start_sun
+            sun_start=self.start_sun.get()
             sun_end=self.end_sun.get()
             #if statement to check values are not empty and to combined with insertstatment
             if(mon_start !="" and mon_end !="" and tues_start !="" and tues_end !="" and wed_start != "" and wed_end != "" and thur_start != "" and thur_end != "" and fri_start != "" and fri_end != "" and sat_start != "" and sat_end != "" and sun_start != "" and sun_end != ""):
@@ -202,6 +202,21 @@ class createRota:
                 mycursor.execute(insert,Value)
                 mydb.commit()
                 messagebox.askokcancel("Shift added")
+                #delete method added to delete labels
+                self.start_Monday.delete(0,END)
+                self.end_Monday.delete(0,END)
+                self.start_tuesday.delete(0,END)
+                self.end_tuesday.delete(0,END)
+                self.start_wednesday.delete(0,END)
+                self.end_wednesday.delete(0,END)
+                self.start_Thursday.delete(0,END)
+                self.end_thursday.delete(0,END)
+                self.start_Friday.delete(0,END)
+                self.end_Friday.delete(0,END)
+                self.start_sat.delete(0,END)
+                self.end_sat.delete(0,END)
+                self.start_sun.delete(0,END)
+                self.end_sun.delete(0,END)
                 
 
 
