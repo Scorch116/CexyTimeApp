@@ -156,6 +156,16 @@ class createRota:
         self.end_sun=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.end_sun.grid(row=3, column=25, padx=10 , pady= 20, sticky="w" )
 
+        #FRAME FOR COMMAND BUTTONS
+        buttonFrame = Frame(BottomFrame, bd="4", bg="blue", relief=RIDGE)
+        buttonFrame.place(x=5, y=120, width=380,height=60)
+        
+
+        add_B = Button(buttonFrame, text="ADD", width=10 ,command= self.add_shift()).grid(row=4 , column= 19 , padx=5 , pady=10)
+        update_B = Button(buttonFrame, text="UPDATE", width=10 ,).grid(row=4 , column= 20 , padx=5 , pady=10)
+        delete_B = Button(buttonFrame, text="DELETE", width=10 ,).grid(row=4 , column= 21 , padx=5 , pady=10)
+        show_B = Button(buttonFrame, text="SHOW", width=10 ,).grid(row=4 , column= 22 , padx=5 , pady=10)
+        
 
 #---------------------------ADD SHIFT FUNCTION------------------#
 
@@ -163,60 +173,45 @@ class createRota:
     def add_shift(self): 
         #select statement
         empID = self.T_eno.get()
-        dbempID=""
-        select = "SELECT empID from shifts where empID='%s'" %(empID)
-        #excution
-        mycursor.execute(select)
-        result=mycursor.fetchall()
-        #for loop to iterate through results
-        for i in result:
-            dbempID=i[0]
-        #if statement to to check if empNo exists and will deploy message
-        if(empID == dbempID):
-            messagebox.askokcancel("Shift already Created")
-        else:
-            insert = "INSERT INTO shift(mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            password=self.T_password.get()
-            name =self.T_name.get()
-            stafflvl = self.T_level.get()
-            gender= self.C_gender.get()
-            address= self.Address.get("1.0",'end-1c')
-            #delcaring varibles to get entry data from widgets above.
-            mon_start=self.start_Monday.get()
-            mon_end=self.end_Monday.get()
-            tues_start=self.start_tuesday.get
-            tues_end=self.end_tuesday.get()
-            wed_start=self.start_wednesday.get()
-            wed_end=self.end_wednesday.get()
-            thur_start=self.start_Thursday.get()
-            thur_end=self.end_thursday.get()
-            fri_start=self.start_Friday.get()
-            fri_end=self.end_Friday.get()
-            sat_start=self.start_sat.get()
-            sat_end=self.end_sat.get()
-            sun_start=self.start_sun.get()
-            sun_end=self.end_sun.get()
-            #if statement to check values are not empty and to combined with insertstatment
-            if(mon_start !="" and mon_end !="" and tues_start !="" and tues_end !="" and wed_start != "" and wed_end != "" and thur_start != "" and thur_end != "" and fri_start != "" and fri_end != "" and sat_start != "" and sat_end != "" and sun_start != "" and sun_end != ""):
-                Value = (mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end)
-                mycursor.execute(insert,Value)
-                mydb.commit()
-                messagebox.askokcancel("Shift added")
-                #delete method added to delete labels
-                self.start_Monday.delete(0,END)
-                self.end_Monday.delete(0,END)
-                self.start_tuesday.delete(0,END)
-                self.end_tuesday.delete(0,END)
-                self.start_wednesday.delete(0,END)
-                self.end_wednesday.delete(0,END)
-                self.start_Thursday.delete(0,END)
-                self.end_thursday.delete(0,END)
-                self.start_Friday.delete(0,END)
-                self.end_Friday.delete(0,END)
-                self.start_sat.delete(0,END)
-                self.end_sat.delete(0,END)
-                self.start_sun.delete(0,END)
-                self.end_sun.delete(0,END)
+        mon_start=self.start_Monday.get()
+        mon_end=self.end_Monday.get()
+        tues_start=self.start_tuesday.get
+        tues_end=self.end_tuesday.get()
+        wed_start=self.start_wednesday.get()
+        wed_end=self.end_wednesday.get()
+        thur_start=self.start_Thursday.get()
+        thur_end=self.end_thursday.get()
+        fri_start=self.start_Friday.get()
+        fri_end=self.end_Friday.get()
+        sat_start=self.start_sat.get()
+        sat_end=self.end_sat.get()
+        sun_start=self.start_sun.get()
+        sun_end=self.end_sun.get()
+        
+        insert = "INSERT INTO shifts(mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) where empID=%s" 
+        
+        
+        #if statement to check values are not empty and to combined with insertstatment
+        if(mon_start !="" and mon_end !="" and tues_start !="" and tues_end !="" and wed_start != "" and wed_end != "" and thur_start != "" and thur_end != "" and fri_start != "" and fri_end != "" and sat_start != "" and sat_end != "" and sun_start != "" and sun_end != ""):
+            Value = (mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end,empID)
+            mycursor.execute(insert,Value)
+            mydb.commit()
+            messagebox.askokcancel("Shift added")
+            #delete method added to delete labels
+            self.start_Monday.delete(0,END)
+            self.end_Monday.delete(0,END)
+            self.start_tuesday.delete(0,END)
+            self.end_tuesday.delete(0,END)
+            self.start_wednesday.delete(0,END)
+            self.end_wednesday.delete(0,END)
+            self.start_Thursday.delete(0,END)
+            self.end_thursday.delete(0,END)
+            self.start_Friday.delete(0,END)
+            self.end_Friday.delete(0,END)
+            self.start_sat.delete(0,END)
+            self.end_sat.delete(0,END)
+            self.start_sun.delete(0,END)
+            self.end_sun.delete(0,END)
                 
 
 
