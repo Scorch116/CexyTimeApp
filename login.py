@@ -59,10 +59,19 @@ class login:
         #Frame for buttons added
 
         buttonFrame = Frame(mainFrame, bd="4", bg="blue", relief=RIDGE)
-        buttonFrame.place(x=35, y=350, width=500,height=150)
+        buttonFrame.place(x=35, y=300, width=500,height=150)
 
         #buttons
         loginbtn = Button(buttonFrame, text="LOGIN", width=65,height=7,command=self.login).grid(row=0 , column= 0 , padx=10 , pady=15)
+
+        #Frame for "quickCex" barcode login
+        #Frame for buttons added
+
+        QuickCexbuttonFrame = Frame(mainFrame, bd="4", bg="blue", relief=RIDGE)
+        QuickCexbuttonFrame.place(x=35, y=450, width=500,height=150)
+
+        #buttons
+        loginbtn = Button(QuickCexbuttonFrame, text="QuickCex", width=65,height=7,command=self.barcode).grid(row=0 , column= 0 , padx=10 , pady=15)
         
 
 
@@ -90,6 +99,10 @@ class login:
                 messagebox.askokcancel("Error", "Login failed, Check username and password")
             else:
                 messagebox.askokcancel("Error", "Login failed, Check username and password")
+    
+    #Function to Summon barcode
+    def barcode(self):
+        import Barcode
 
        
 

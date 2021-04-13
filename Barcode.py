@@ -32,7 +32,7 @@ while camera == True: # camera will stay open for scanning (testing make sure to
         else:
             pass
 
-    cv2.imshow('testing',frame) 
+    cv2.imshow('CexyFrame',frame) 
     cv2.waitKey(1)
 
     
