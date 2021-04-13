@@ -159,7 +159,54 @@ class createRota:
 
 #---------------------------ADD SHIFT FUNCTION------------------#
 
+#function to add shift to DB 
+    def add_shift(self): 
+        #select statement
+        empID = self.T_eno.get()
+        dbempID=""
+        select = "SELECT empID from shifts where empID='%s'" %(empID)
+        #excution
+        mycursor.execute(select)
+        result=mycursor.fetchall()
+        #for loop to iterate through results
+        for i in result:
+            dbempID=i[0]
+        #if statement to to check if empNo exists and will deploy message
+        if(empID == dbempID):
+            messagebox.askokcancel("Shift already Created")
+        else:
+            insert = "INSERT INTO shift(mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            password=self.T_password.get()
+            name =self.T_name.get()
+            stafflvl = self.T_level.get()
+            gender= self.C_gender.get()
+            address= self.Address.get("1.0",'end-1c')
+            #delcaring varibles to get entry data from widgets above.
+            mon_start=self.start_Monday.get()
+            mon_end=self.end_Monday.get()
+            tues_start=self.start_tuesday.get
+            tues_end=self.end_tuesday.get()
+            wed_start=self.start_wednesday.get()
+            wed_end=self.end_wednesday.get()
+            thur_start=self.start_Thursday.get()
+            thur_end=self.start_Thursday.get()
+            fri_start=self.start_Friday.get()
+            fri_end=self.end_Friday.get()
+            sat_start=self.start_sat.get()
+            sat_end=self.end_sat.get()
+            sun_start=self.start_sun
+            sun_end=self.end_sun.get()
+            #if statement to check values are not empty and to combined with insertstatment
+            if(mon_start !="" and mon_end !="" and tues_start !="" and tues_end !="" and wed_start != "" and wed_end != "" and thur_start != "" and thur_end != "" and fri_start != "" and fri_end != "" and sat_start != "" and sat_end != "" and sun_start != "" and sun_end != ""):
+                Value = (mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end)
+                mycursor.execute(insert,Value)
+                mydb.commit()
+                messagebox.askokcancel("Shift added")
+                
 
+
+
+    
 
 
 createIndex=Tk()
