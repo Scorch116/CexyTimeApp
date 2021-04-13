@@ -38,7 +38,8 @@ class createRota:
         scroll_y = Scrollbar(rotaCreateFrame, orient=VERTICAL)
 
         #put the values , before fetching values , create the columns 
-        self.createrotaview=ttk.Treeview(rotaCreateFrame,columns=("name","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        self.createrotaview=ttk.Treeview(rotaCreateFrame,columns=("name","Monday_start","Monday_end","Tuesday_start","Tuesday_end","Wednesday_start","Wednesday_end","Thursday_start","Thursday_end","Friday_start","Friday_end","Saturday_start","Saturday_end","Sunday_start","Sunday_end"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        self.createrotaview=ttk.Treeview(rotaCreateFrame,columns=("name","Monday_start","Monday_end","Tuesday_start","Tuesday_end","Wednesday_start","Wednesday_end","Thursday_start","Thursday_end","Friday_start","Friday_end","Saturday_start","Saturday_end","Sunday_start","Sunday_end"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
         scroll_x.pack(side=BOTTOM, fill=X)
         scroll_y.pack(side=RIGHT, fill=Y)
 
@@ -49,13 +50,20 @@ class createRota:
         #These headings may change
         #Headings for table 
         self.createrotaview.heading("name", text="Name")
-        self.createrotaview.heading("Monday", text="MONDAY")
-        self.createrotaview.heading("Tuesday", text="TUESDAY")
-        self.createrotaview.heading("Wednesday", text="WEDNESDAY")
-        self.createrotaview.heading("Thursday", text="THURSDAY")
-        self.createrotaview.heading("Friday", text="FRIDAY")
-        self.createrotaview.heading("Saturday", text="SATURDAY")
-        self.createrotaview.heading("Sunday", text="SUNDAY")
+        self.createrotaview.heading("Monday_start", text="MONDAY START")
+        self.createrotaview.heading("Monday_end", text="MONDAY END")
+        self.createrotaview.heading("Tuesday_start", text="TUESDAY START")
+        self.createrotaview.heading("Tuesday_end", text="TUESDAY END")
+        self.createrotaview.heading("Wednesday_start", text="WEDNESDAY START")
+        self.createrotaview.heading("Wednesday_end", text="WEDNESDAY END")
+        self.createrotaview.heading("Thursday_start", text="THURSDAY START")
+        self.createrotaview.heading("Thursday_end", text="THURSDAY END")
+        self.createrotaview.heading("Friday_start", text="FRIDAY START")
+        self.createrotaview.heading("Friday_end", text="FRIDAY END")
+        self.createrotaview.heading("Saturday_start", text="SATURDAY START")
+        self.createrotaview.heading("Saturday_end", text="SATURDAY END")
+        self.createrotaview.heading("Sunday_start", text="SUNDAY START")
+        self.createrotaview.heading("Sunday_end", text="SUNDAY END")
         #DISPLAY THE HEADINGS
         self.createrotaview['show']='headings'
 
@@ -147,6 +155,9 @@ class createRota:
         #textbox entry for sun end time
         self.end_sun=Entry(BottomFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.end_sun.grid(row=3, column=25, padx=10 , pady= 20, sticky="w" )
+
+
+#---------------------------ADD SHIFT FUNCTION------------------#
 
 
 
