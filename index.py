@@ -222,7 +222,10 @@ class employee:
     #function to delete, only have to enter the empNo
     def delete(self):
         empNo= self.T_eno.get()
+        #had to add second SQL delete statement to delete ID from shifts table then person table
+        deleteEmpID = "DELETE FROM shifts where empID= '%s'"%(empNo)
         Delete = "DELETE FROM person WHERE empno= '%s'" %(empNo)
+        mycursor.execute(deleteEmpID)
         mycursor.execute(Delete)
         mydb.commit()
         messagebox.showinfo("Info","Employee deleted")
