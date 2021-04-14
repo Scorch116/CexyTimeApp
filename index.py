@@ -202,10 +202,13 @@ class employee:
             stafflvl = self.T_level.get()
             gender= self.C_gender.get()
             address= self.Address.get("1.0",'end-1c')
+            #insertion into shifts table empNo
+            shiftsinsert = "INSERT INTO shifts(empID) values ('%s')" %(empNo)
             #if statement to check values are not empty and to combined with insertstatment
             if(password !="" and name !="" and stafflvl !="" and gender !="" and address != ""):
                 Value = (empNo,password,name,stafflvl,gender,address)
                 mycursor.execute(insert,Value)
+                mycursor.execute(shiftsinsert)
                 mydb.commit()
                 messagebox.askokcancel("Employee inserted")
                 #using "delete" to clear labels when data inserted
