@@ -107,6 +107,54 @@ class rota:
         shiftSwapFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
         shiftSwapFrame.place(x=100, y=510, width=1700,height=300)
 
+        #label out lining tool
+        L_title=Label(shiftSwapFrame, text="Shift Swap tool", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_title.grid(row=1, column=0, padx=20, pady=10, sticky="w")
+
+        leftFrameSwap = Frame(shiftSwapFrame, bd="4", bg="blue", relief=RIDGE)
+        leftFrameSwap.place(x=20, y=50, width=650,height=200)
+    
+        #label for instructions
+        L_entermyshift=Label(leftFrameSwap, text="Enter your shift you want to swap", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_entermyshift.grid(row=4, column=0, padx=20, pady=10, sticky="w")
+        
+        #label for day
+        L_day=Label(leftFrameSwap, text="     Day", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_day.grid(row=5, column=0, padx=5, pady=0, sticky="w")
+
+        #ComboBox with all the shift days , start and end.
+        self.C_my_days=ttk.Combobox(leftFrameSwap , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
+        self.C_my_days['values']=("mon_start","mon_end","tues_start","tues_end","wed_start","wed_end","thur_start","thur_end","fri_start","fri_end","sat_start","sat_end","sun_start","sun_end") # the values to select in the combobox!
+        self.C_my_days.grid(row=5 , column=1 , padx=5 , pady=10, sticky="w")
+
+        #label for start time
+        L_starttime=Label(leftFrameSwap, text="     Start time", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_starttime.grid(row=6, column=0, padx=5, pady=0, sticky="w")
+        #textbox entry for start time for the user wanting to swap shits
+        self.my_start_time=Entry(leftFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.my_start_time.grid(row=6, column=1, padx=5 , pady=10, sticky="w" )
+
+        #label for end time
+        L_endTime=Label(leftFrameSwap, text="     End Time", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_endTime.grid(row=7, column=0, padx=5, pady=0, sticky="w")
+
+        #textbox entry for end time for the user wanting to swap shits
+        self.my_end_time=Entry(leftFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.my_end_time.grid(row=7, column=1, padx=5 , pady= 10, sticky="w" )
+
+
+
+        """
+        #label for instructions
+        L_enterYourshift=Label(shiftSwapFrame, text="Enter shift that you want to work", bg="blue", fg="white", font=("verdana",12,"bold"))
+        L_enterYourshift.grid(row=4, column=6, padx=20, pady=10, sticky="w")
+
+        #ComboBox with all the shift days , start and end.
+        self.C_your_days=ttk.Combobox(shiftSwapFrame , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
+        self.C_your_days['values']=("mon_start","mon_end","tues_start","tues_end","wed_start","wed_end","thur_start","thur_end","fri_start","fri_end","sat_start","sat_end","sun_start","sun_end") # the values to select in the combobox!
+        self.C_your_days.grid(row=5 , column= 7 , padx=5 , pady=10, sticky="w")
+        """
+
         
 
 
