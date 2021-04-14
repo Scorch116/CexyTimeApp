@@ -235,7 +235,7 @@ class createRota:
         sat_end=""
         sun_start=""
         sun_end=""
-
+        #for loop to iterate through results
         for i in result:
             name =i[0]
             mon_start= i[1]
@@ -252,7 +252,7 @@ class createRota:
             sat_end=i[12]
             sun_start=i[13]
             sun_end=i[14]
-
+            #insert statement to inert data into treeview for dispaly
             self.createrotaview.insert("",'end',text=name,values=(name,mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end))
         mydb.commit()
 
