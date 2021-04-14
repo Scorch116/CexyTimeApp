@@ -71,7 +71,7 @@ class rota:
         scroll_y = Scrollbar(rotaFrame, orient=VERTICAL)
 
         #put the values , before fetching values , create the columns 
-        self.rotaview=ttk.Treeview(rotaFrame,columns=("name","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        self.rotaview=ttk.Treeview(rotaFrame,columns=("name","Monday_start","Monday_end","Tuesday_start","Tuesday_end","Wednesday_start","Wednesday_end","Thursday_start","Thursday_end","Friday_start","Friday_end","Saturday_start","Saturday_end","Sunday_start","Sunday_end"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
         scroll_x.pack(side=BOTTOM, fill=X)
         scroll_y.pack(side=RIGHT, fill=Y)
 
@@ -82,13 +82,20 @@ class rota:
         #These headings may change
         #Headings for table 
         self.rotaview.heading("name", text="Name")
-        self.rotaview.heading("Monday", text="MONDAY")
-        self.rotaview.heading("Tuesday", text="TUESDAY")
-        self.rotaview.heading("Wednesday", text="WEDNESDAY")
-        self.rotaview.heading("Thursday", text="THURSDAY")
-        self.rotaview.heading("Friday", text="FRIDAY")
-        self.rotaview.heading("Saturday", text="SATURDAY")
-        self.rotaview.heading("Sunday", text="SUNDAY")
+        self.rotaview.heading("Monday_start", text="MONDAY START")
+        self.rotaview.heading("Monday_end", text="MONDAY END")
+        self.rotaview.heading("Tuesday_start", text="TUESDAY START")
+        self.rotaview.heading("Tuesday_end", text="TUESDAY END")
+        self.rotaview.heading("Wednesday_start", text="WEDNESDAY START")
+        self.rotaview.heading("Wednesday_end", text="WEDNESDAY END")
+        self.rotaview.heading("Thursday_start", text="THURSDAY START")
+        self.rotaview.heading("Thursday_end", text="THURSDAY END")
+        self.rotaview.heading("Friday_start", text="FRIDAY START")
+        self.rotaview.heading("Friday_end", text="FRIDAY END")
+        self.rotaview.heading("Saturday_start", text="SATURDAY START")
+        self.rotaview.heading("Saturday_end", text="SATURDAY END")
+        self.rotaview.heading("Sunday_start", text="SUNDAY START")
+        self.rotaview.heading("Sunday_end", text="SUNDAY END")
         #DISPLAY THE HEADINGS
         self.rotaview['show']='headings'
 

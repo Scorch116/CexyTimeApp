@@ -255,6 +255,8 @@ class createRota:
             #insert statement to inert data into treeview for dispaly
             self.createrotaview.insert("",'end',text=name,values=(name,mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end))
         mydb.commit()
+    
+    
 
 
 
@@ -267,4 +269,5 @@ class createRota:
 
 createIndex=Tk()
 object=createRota(createIndex)
+object.display_data()
 createIndex.mainloop()
