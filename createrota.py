@@ -164,7 +164,7 @@ class createRota:
         add_B = Button(buttonFrame, text="ADD", width=10 ,command= self.add_shift).grid(row=4 , column= 19 , padx=5 , pady=10)
         update_B = Button(buttonFrame, text="UPDATE", width=10 ,).grid(row=4 , column= 20 , padx=5 , pady=10)
         delete_B = Button(buttonFrame, text="DELETE", width=10 ,).grid(row=4 , column= 21 , padx=5 , pady=10)
-        show_B = Button(buttonFrame, text="SHOW", width=10 ,).grid(row=4 , column= 22 , padx=5 , pady=10)
+        show_B = Button(buttonFrame, text="SHOW", width=10 ,command=self.display_data).grid(row=4 , column= 22 , padx=5 , pady=10)
         
 
 #---------------------------ADD SHIFT FUNCTION------------------#
@@ -213,6 +213,51 @@ class createRota:
         self.end_sat.delete(0,END)
         self.start_sun.delete(0,END)
         self.end_sun.delete(0,END)
+    #display data function 
+
+    def display_data(self):
+        #select statement to get data from DB
+        select = "select person.name,shifts.mon_start,shifts.mon_end,shifts.tues_start,shifts.tues_end,shifts.wed_start,shifts.wed_end,shifts.thur_start,shifts.thur_end,shifts.fri_start,shifts.fri_end,shifts.sat_start,shifts.sat_end,shifts.sun_start,shifts.sun_end from person INNER JOIN shifts on person.empno=shifts.empID;"
+        mycursor.execute(select)
+        result=mycursor.fetchall()
+        name=""
+        mon_start=""
+        mon_end=""
+        tues_start=""
+        tues_end=""
+        wed_start=""
+        wed_end=""
+        thur_start=""
+        thur_end=""
+        fri_start=""
+        fri_end=""
+        sat_start=""
+        sat_end=""
+        sun_start=""
+        sun_end=""
+
+        for i in result:
+            name =i[0]
+            mon_start= i[1]
+            mon_end=i[2]
+            tues_start=i[3]
+            tues_end=i[4]
+            wed_start=i[5]
+            wed_end=i[6]
+            thur_start=i[7]
+            thur_end=i[8]
+            fri_start=i[9]
+            fri_end=i[10]
+            sat_start=i[11]
+            sat_end=i[12]
+            sun_start=i[13]
+            sun_end=i[14]
+
+            self.createrotaview.insert("",'end',text=name,values=(name,mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end))
+        mydb.commit()
+
+
+
                 
 
 
