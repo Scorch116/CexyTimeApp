@@ -3,6 +3,16 @@ from pyzbar.pyzbar  import decode # libary to read one-demensional barcodes , us
 import cv2
 import time
 
+#SQL connector for CEx database
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="admin",
+    passwd="admin",
+    database ="cexydatabase"
+)
+
+mycursor =mydb.cursor()
+
 # capture image with camera window for testing purpose , dont have barcode scanner
 # Window size could be altered for main application
 capture = cv2.VideoCapture(0)
