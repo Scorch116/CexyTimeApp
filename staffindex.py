@@ -110,7 +110,8 @@ class rota:
         #label out lining tool
         L_title=Label(shiftSwapFrame, text="Shift Swap tool", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_title.grid(row=1, column=0, padx=20, pady=10, sticky="w")
-
+        
+        #Frame for entry of data for staff wanting to swap
         leftFrameSwap = Frame(shiftSwapFrame, bd="4", bg="blue", relief=RIDGE)
         leftFrameSwap.place(x=20, y=50, width=650,height=200)
     
