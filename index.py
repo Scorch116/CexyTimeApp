@@ -286,6 +286,7 @@ class employee:
                  
 index=Tk()
 object=employee(index)
+object.loadData()
 index.mainloop()
 
 
