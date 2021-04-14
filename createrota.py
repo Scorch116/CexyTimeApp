@@ -161,7 +161,7 @@ class createRota:
         buttonFrame.place(x=5, y=120, width=380,height=60)
         
 
-        add_B = Button(buttonFrame, text="ADD", width=10 ,command= self.add_shift()).grid(row=4 , column= 19 , padx=5 , pady=10)
+        add_B = Button(buttonFrame, text="ADD", width=10 ,command= self.add_shift).grid(row=4 , column= 19 , padx=5 , pady=10)
         update_B = Button(buttonFrame, text="UPDATE", width=10 ,).grid(row=4 , column= 20 , padx=5 , pady=10)
         delete_B = Button(buttonFrame, text="DELETE", width=10 ,).grid(row=4 , column= 21 , padx=5 , pady=10)
         show_B = Button(buttonFrame, text="SHOW", width=10 ,).grid(row=4 , column= 22 , padx=5 , pady=10)
@@ -175,7 +175,7 @@ class createRota:
         empID = self.T_eno.get()
         mon_start=self.start_Monday.get()
         mon_end=self.end_Monday.get()
-        tues_start=self.start_tuesday.get
+        tues_start=self.start_tuesday.get()
         tues_end=self.end_tuesday.get()
         wed_start=self.start_wednesday.get()
         wed_end=self.end_wednesday.get()
@@ -187,31 +187,32 @@ class createRota:
         sat_end=self.end_sat.get()
         sun_start=self.start_sun.get()
         sun_end=self.end_sun.get()
-        
-        insert = "INSERT INTO shifts(mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) where empID=%s" 
-        
-        
+        #must use update ass the empID is added from manager index page
+        update = "UPDATE shifts SET mon_start='%s', mon_end='%s',tues_start='%s', tues_end='%s', wed_start='%s', wed_end='%s', thur_start='%s',thur_end='%s',fri_start='%s',fri_end='%s',sat_start='%s',sat_end='%s',sun_start='%s',sun_end='%s' where empID='%s'" %(mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end,empID)
+        mycursor.execute(update)
+        mydb.commit()
+        messagebox.askokcancel("INFO","Shift added")
         #if statement to check values are not empty and to combined with insertstatment
-        if(mon_start !="" and mon_end !="" and tues_start !="" and tues_end !="" and wed_start != "" and wed_end != "" and thur_start != "" and thur_end != "" and fri_start != "" and fri_end != "" and sat_start != "" and sat_end != "" and sun_start != "" and sun_end != ""):
-            Value = (mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end,empID)
-            mycursor.execute(insert,Value)
-            mydb.commit()
-            messagebox.askokcancel("Shift added")
+        #if(mon_start !="" and mon_end !="" and tues_start !="" and tues_end !="" and wed_start != "" and wed_end != "" and thur_start != "" and thur_end != "" and fri_start != "" and fri_end != "" and sat_start != "" and sat_end != "" and sun_start != "" and sun_end != ""):
+         #   Value = (mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end,empID)
+          ##  mycursor.execute(update,Value)
+           # mydb.commit()
+            #messagebox.askokcancel("Shift added")
             #delete method added to delete labels
-            self.start_Monday.delete(0,END)
-            self.end_Monday.delete(0,END)
-            self.start_tuesday.delete(0,END)
-            self.end_tuesday.delete(0,END)
-            self.start_wednesday.delete(0,END)
-            self.end_wednesday.delete(0,END)
-            self.start_Thursday.delete(0,END)
-            self.end_thursday.delete(0,END)
-            self.start_Friday.delete(0,END)
-            self.end_Friday.delete(0,END)
-            self.start_sat.delete(0,END)
-            self.end_sat.delete(0,END)
-            self.start_sun.delete(0,END)
-            self.end_sun.delete(0,END)
+        self.start_Monday.delete(0,END)
+        self.end_Monday.delete(0,END)
+        self.start_tuesday.delete(0,END)
+        self.end_tuesday.delete(0,END)
+        self.start_wednesday.delete(0,END)
+        self.end_wednesday.delete(0,END)            
+        self.start_Thursday.delete(0,END)
+        self.end_thursday.delete(0,END)
+        self.start_Friday.delete(0,END)
+        self.end_Friday.delete(0,END)
+        self.start_sat.delete(0,END)
+        self.end_sat.delete(0,END)
+        self.start_sun.delete(0,END)
+        self.end_sun.delete(0,END)
                 
 
 
