@@ -210,7 +210,7 @@ class employee:
                 mycursor.execute(insert,Value)
                 mycursor.execute(shiftsinsert)
                 mydb.commit()
-                messagebox.askokcancel("Employee inserted")
+                messagebox.askokcancel("INFO","Employee inserted")
                 #using "delete" to clear labels when data inserted
                 self.T_eno.delete(0,END)
                 self.T_password.delete(0,END)
