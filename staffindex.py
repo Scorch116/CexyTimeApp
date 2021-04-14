@@ -63,7 +63,7 @@ class rota:
         #----------------------Frame for displaying data-------------------------#
         rotaFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        rotaFrame.place(x=100, y=200, width=1700,height=600)
+        rotaFrame.place(x=100, y=200, width=1700,height=300)
 
         #scroll bar  for table 
         #orient = the orientation , horizontial and vertical 
@@ -101,6 +101,11 @@ class rota:
 
         #publish table
         self.rotaview.pack(fill=BOTH,expand=1)
+
+        #------------------------shiftswap Frame---------------#
+
+        shiftSwapFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
+        shiftSwapFrame.place(x=100, y=510, width=1700,height=300)
 
         
 
