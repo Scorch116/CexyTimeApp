@@ -156,7 +156,7 @@ class rota:
         MidFrameSwap = Frame(shiftSwapFrame, bd="4", bg="blue", relief=RIDGE)
         MidFrameSwap.place(x=700, y=50, width=250,height=290)
 
-        Swap_B = Button(MidFrameSwap, text="CEx Exchange", width=31, height=17 ).grid(row=0 , column= 0, padx=5 , pady=10)
+        Swap_B = Button(MidFrameSwap, text="CEx Exchange", width=31, height=17,command=self.shiftSwap ).grid(row=0 , column= 0, padx=5 , pady=10)
 
 
         #----------frame for right swap , for shift in exchange for swapping--------------#
@@ -187,8 +187,8 @@ class rota:
         self.C_my_days_start_right.grid(row=6 , column=1 , padx=5 , pady=10, sticky="w")
 
         #textbox entry for start time for the user wanting to swap shits
-        self.my_start_time=Entry(rightFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        self.my_start_time.grid(row=7, column=1, padx=5 , pady=10, sticky="w" )
+        self.my_start_time_right=Entry(rightFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.my_start_time_right.grid(row=7, column=1, padx=5 , pady=10, sticky="w" )
 
         #label for end time
         L_endTime=Label(rightFrameSwap, text="     End Time", bg="blue", fg="white", font=("verdana",12,"bold"))
@@ -215,7 +215,7 @@ class rota:
         #must "place" for visibility.
         clockinFrame.place(x=100, y=890, width=1700,height=100)
         #button for clocking in 
-        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 4,command=timestamp.returnTime).grid(row=0 , column= 0 , padx=10 , pady=15)
+        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 4,command=self.shiftSwap).grid(row=0 , column= 0 , padx=10 , pady=15)
 
         
        #display data function 
@@ -265,17 +265,30 @@ class rota:
         
         #varibale of person wanting swap
         empNowantSwap=self.swap_empno_left.get()
-        DaywantSwap = self.C_my_days.get()
-        starttimeWantswap = self.my_start_time.get()
+        DaywantSwapStart = self.C_my_days_start_left.get()
+        daywantSwapend =self.C_my_days_end_left.get()
+        
+        #shift you will work 
+        day_start= self.C_my_days_start_right.get()
+        time_start =self.my_start_time_right.get()
+        day_end = self.C_my_days_end_right.get()
+        time_end =self.my_end_time_right.get()
 
 
         #varibale for employee willing to swap
         empNotoswap=self.swap_empno_right.get()
+        day_exchange_start =self.C_my_days_start_left.get()
+        exchange_start_time =self.my_start_time.get()
+        day_exchange_end =self.C_my_days_end_left.get()
+        exchange_end_time = self.my_end_time_left.get()
 
-
-
-        selectforSwap = "update shifts set '%s' = '%s','%s'= '%s', '%s' = '%s' , '%s' = '%s' where empId = '%s';"%()
-       
+        #select statement to update DB
+        selectforSwap = "UPDATE shifts set %s ='OFF',%s='OFF',%s='%s',%s='%s' WHERE empID ='%s' "  %(DaywantSwapStart,daywantSwapend,day_start,time_start,day_end,time_end,empNowantSwap)
+        selectforexchange = "UPDATE shifts set %s ='OFF',%s='OFF',%s='%s',%s='%s' WHERE empID ='%s' " %(day_start,day_end,day_exchange_start,exchange_start_time,day_exchange_end,exchange_end_time,empNotoswap)
+        mycursor.execute(selectforSwap)
+        mycursor.execute(selectforexchange)
+        mydb.commit()
+        messagebox.showinfo("Info","shift updated")
 
 
 rotaindex=Tk()
