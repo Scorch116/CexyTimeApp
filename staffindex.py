@@ -29,7 +29,7 @@ class rota:
     def __init__(self,rotaindex):
         self.rotaindex = rotaindex
         self.rotaindex.title("CExYtime")
-        self.rotaindex.geometry("1900x1000+0+0") # size of window , width then height
+        self.rotaindex.geometry("1900x1100+0+0") # size of window , width then height
 
         #Create label for title in frame 
         title = Label(rotaindex, text="CExYtime Rota", font=("verdana",40,"bold"), bg="blue", fg="white")
@@ -105,7 +105,7 @@ class rota:
         #------------------------shiftswap Frame---------------#
 
         shiftSwapFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
-        shiftSwapFrame.place(x=100, y=510, width=1700,height=300)
+        shiftSwapFrame.place(x=100, y=510, width=1700,height=360)
 
         #label out lining tool
         L_title=Label(shiftSwapFrame, text="Shift Swap tool", bg="blue", fg="white", font=("verdana",12,"bold"))
@@ -113,7 +113,7 @@ class rota:
         
         #Frame for entry of data for staff wanting to swap
         leftFrameSwap = Frame(shiftSwapFrame, bd="4", bg="blue", relief=RIDGE)
-        leftFrameSwap.place(x=20, y=50, width=650,height=240)
+        leftFrameSwap.place(x=20, y=50, width=650,height=290)
     
         #label for instructions
         L_entermyshift=Label(leftFrameSwap, text="Enter your shift you want to swap", bg="blue", fg="white", font=("verdana",12,"bold"))
@@ -125,44 +125,45 @@ class rota:
         #textbox entry for empNo
         self.swap_empno_left=Entry(leftFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.swap_empno_left.grid(row=5, column=1, padx=5 , pady=10, sticky="w" )
-        
-        #label for day
-        L_day=Label(leftFrameSwap, text="     Day", bg="blue", fg="white", font=("verdana",12,"bold"))
-        L_day.grid(row=6, column=0, padx=5, pady=0, sticky="w")
-
-        #ComboBox with all the shift days , start and end.
-        self.C_my_days=ttk.Combobox(leftFrameSwap , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
-        self.C_my_days['values']=("mon_start","mon_end","tues_start","tues_end","wed_start","wed_end","thur_start","thur_end","fri_start","fri_end","sat_start","sat_end","sun_start","sun_end") # the values to select in the combobox!
-        self.C_my_days.grid(row=6 , column=1 , padx=5 , pady=10, sticky="w")
 
         #label for start time
         L_starttime=Label(leftFrameSwap, text="     Start time", bg="blue", fg="white", font=("verdana",12,"bold"))
-        L_starttime.grid(row=7, column=0, padx=5, pady=0, sticky="w")
+        L_starttime.grid(row=6, column=0, padx=5, pady=0, sticky="w")
         #textbox entry for start time for the user wanting to swap shits
         self.my_start_time=Entry(leftFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.my_start_time.grid(row=7, column=1, padx=5 , pady=10, sticky="w" )
+
+        #ComboBox with all the shift days , start selection only.
+        self.C_my_days_start_left=ttk.Combobox(leftFrameSwap , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
+        self.C_my_days_start_left['values']=("mon_start","tues_start","wed_start","thur_start","fri_start","sat_start","sun_start") # the values to select in the combobox!
+        self.C_my_days_start_left.grid(row=6 , column=1 , padx=5 , pady=10, sticky="w")
 
         #label for end time
         L_endTime=Label(leftFrameSwap, text="     End Time", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_endTime.grid(row=8, column=0, padx=5, pady=0, sticky="w")
 
         #textbox entry for end time for the user wanting to swap shits
-        self.my_end_time=Entry(leftFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        self.my_end_time.grid(row=8, column=1, padx=5 , pady= 10, sticky="w" )
+        self.my_end_time_left=Entry(leftFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.my_end_time_left.grid(row=9, column=1, padx=5 , pady= 10, sticky="w" )
+
+        #ComboBox with all the shift days , end selection only.
+        self.C_my_days_end_left=ttk.Combobox(leftFrameSwap , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
+        self.C_my_days_end_left['values']=("mon_end","tues_end","wed_end","thur_end","fri_end","sat_end","sun_end") # the values to select in the combobox!
+        self.C_my_days_end_left.grid(row=8 , column=1 , padx=5 , pady=10, sticky="w")
 
         #--------------Frame for middle "swap" button--------------------#
         #Frame for entry of data for staff wanting to swap
         MidFrameSwap = Frame(shiftSwapFrame, bd="4", bg="blue", relief=RIDGE)
-        MidFrameSwap.place(x=700, y=50, width=250,height=240)
+        MidFrameSwap.place(x=700, y=50, width=250,height=290)
 
-        Swap_B = Button(MidFrameSwap, text="CEx Exchange", width=31, height=14 ).grid(row=0 , column= 0, padx=5 , pady=10)
+        Swap_B = Button(MidFrameSwap, text="CEx Exchange", width=31, height=17 ).grid(row=0 , column= 0, padx=5 , pady=10)
 
 
         #----------frame for right swap , for shift in exchange for swapping--------------#
 
         #Frame for entry of data for staff wanting to swap
         rightFrameSwap = Frame(shiftSwapFrame, bd="4", bg="blue", relief=RIDGE)
-        rightFrameSwap.place(x=980, y=50, width=650,height=240)
+        rightFrameSwap.place(x=980, y=50, width=650,height=290)
 
         #label for instructions
         L_entermyshift=Label(rightFrameSwap, text="Enter shift you will work", bg="blue", fg="white", font=("verdana",12,"bold"))
@@ -175,18 +176,16 @@ class rota:
         self.swap_empno_right=Entry(rightFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.swap_empno_right.grid(row=5, column=1, padx=5 , pady=10, sticky="w" )
         
-        #label for day
-        L_day=Label(rightFrameSwap, text="     Day", bg="blue", fg="white", font=("verdana",12,"bold"))
-        L_day.grid(row=6, column=0, padx=5, pady=0, sticky="w")
-
-        #ComboBox with all the shift days , start and end.
-        self.C_my_days=ttk.Combobox(rightFrameSwap , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
-        self.C_my_days['values']=("mon_start","mon_end","tues_start","tues_end","wed_start","wed_end","thur_start","thur_end","fri_start","fri_end","sat_start","sat_end","sun_start","sun_end") # the values to select in the combobox!
-        self.C_my_days.grid(row=6 , column=1 , padx=5 , pady=10, sticky="w")
 
         #label for start time
         L_starttime=Label(rightFrameSwap, text="     Start time", bg="blue", fg="white", font=("verdana",12,"bold"))
-        L_starttime.grid(row=7, column=0, padx=5, pady=0, sticky="w")
+        L_starttime.grid(row=6, column=0, padx=5, pady=0, sticky="w")
+
+        #ComboBox with all the shift days , start selection only.
+        self.C_my_days_start_right=ttk.Combobox(rightFrameSwap , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
+        self.C_my_days_start_right['values']=("mon_start","tues_start","wed_start","thur_start","fri_start","sat_start","sun_start") # the values to select in the combobox!
+        self.C_my_days_start_right.grid(row=6 , column=1 , padx=5 , pady=10, sticky="w")
+
         #textbox entry for start time for the user wanting to swap shits
         self.my_start_time=Entry(rightFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.my_start_time.grid(row=7, column=1, padx=5 , pady=10, sticky="w" )
@@ -195,9 +194,15 @@ class rota:
         L_endTime=Label(rightFrameSwap, text="     End Time", bg="blue", fg="white", font=("verdana",12,"bold"))
         L_endTime.grid(row=8, column=0, padx=5, pady=0, sticky="w")
 
+         #ComboBox with all the shift days , end selection only.
+        self.C_my_days_end_right=ttk.Combobox(rightFrameSwap , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
+        self.C_my_days_end_right['values']=("mon_end","tues_end","wed_end","thur_end","fri_end","sat_end","sun_end") # the values to select in the combobox!
+        self.C_my_days_end_right.grid(row=8 , column=1 , padx=5 , pady=10, sticky="w")
+
+
         #textbox entry for end time for the user wanting to swap shits
-        self.my_end_time=Entry(rightFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        self.my_end_time.grid(row=8, column=1, padx=5 , pady= 10, sticky="w" )
+        self.my_end_time_right=Entry(rightFrameSwap,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.my_end_time_right.grid(row=9, column=1, padx=5 , pady= 10, sticky="w" )
 
 
 
@@ -208,9 +213,9 @@ class rota:
 
         clockinFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        clockinFrame.place(x=100, y=820, width=1700,height=150)
+        clockinFrame.place(x=100, y=890, width=1700,height=100)
         #button for clocking in 
-        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 7,command=timestamp.returnTime).grid(row=0 , column= 0 , padx=10 , pady=15)
+        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 4,command=timestamp.returnTime).grid(row=0 , column= 0 , padx=10 , pady=15)
 
         
        #display data function 
@@ -260,8 +265,16 @@ class rota:
         
         #varibale of person wanting swap
         empNowantSwap=self.swap_empno_left.get()
+        DaywantSwap = self.C_my_days.get()
+        starttimeWantswap = self.my_start_time.get()
+
+
         #varibale for employee willing to swap
         empNotoswap=self.swap_empno_right.get()
+
+
+
+        selectforSwap = "update shifts set '%s' = '%s','%s'= '%s', '%s' = '%s' , '%s' = '%s' where empId = '%s';"%()
        
 
 
