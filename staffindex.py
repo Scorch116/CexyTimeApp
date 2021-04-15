@@ -9,7 +9,7 @@ import mysql.connector
 from tkinter import messagebox
 import datetime
 import time
-import timestamp
+from timestamp import returnTime
 
 
 #sql connector 
@@ -215,7 +215,7 @@ class rota:
         #must "place" for visibility.
         clockinFrame.place(x=100, y=890, width=1700,height=100)
         #button for clocking in 
-        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 4,command=self.shiftSwap).grid(row=0 , column= 0 , padx=10 , pady=15)
+        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 4,command=returnTime).grid(row=0 , column= 0 , padx=10 , pady=15)
 
         
        #display data function 
