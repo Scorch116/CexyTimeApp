@@ -255,8 +255,13 @@ class rota:
             #insert statement to inert data into treeview for dispaly
             self.rotaview.insert("",'end',text=name,values=(name,mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end))
         mydb.commit()
-    
-    
+    #function to perform shift swap
+    def shiftSwap(self):
+        
+        #varibale of person wanting swap
+        empNowantSwap=self.swap_empno_left.get()
+        #varibale for employee willing to swap
+        empNotoswap=self.swap_empno_right.get()
        
 
 
