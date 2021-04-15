@@ -27,17 +27,27 @@ class login:
     def __init__(self,loginpg) :
         self.loginpg=loginpg
         self.loginpg.title("CExYtime")
-        self.loginpg.geometry("1700x1000+0+0") # size of window , width then height
+        self.loginpg.geometry("1900x1050+0+0") # size of window , width then height
 
         #Create label for title in frame 
         title = Label(self.loginpg, text="CExYtime Login", font=("verdana",40,"bold"), bg="blue", fg="white")
         #Using pack method to decare position of widgets. Fill with X will fill the window with the brackground colour for tidyness.
         title.pack(side=TOP, fill=X)
 
+        logoFrame =Frame(self.loginpg, bd="4", relief=RIDGE)
+        logoFrame.place(x=800, y=90, width=270,height=210)
+        #loading image into variable
+        loadlogo = Image.open("CEx logo.jpeg")
+        render=ImageTk.PhotoImage(loadlogo)
+        #label for image 
+        image_label = Label(logoFrame, image=render)
+        image_label.image=render
+        image_label.place(x=0,y=0)
+
         #Declaring main side frame 
         mainFrame = Frame(self.loginpg, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        mainFrame.place(x=600, y=85, width=600,height=700)
+        mainFrame.place(x=650, y=300, width=600,height=700)
 
         #label for Username 
         #using grid starting from row3
