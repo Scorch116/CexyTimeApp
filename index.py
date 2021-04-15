@@ -219,6 +219,10 @@ class employee:
                 #self.C_gender.delete('1.0',END)
                 #Will come back to this , cant clear combo box...
                 #self.Address.delete(0,END)
+            self.loadData()
+
+
+
     #function to delete, only have to enter the empNo
     def delete(self):
         empNo= self.T_eno.get()
@@ -230,6 +234,8 @@ class employee:
         mydb.commit()
         messagebox.showinfo("Info","Employee deleted")
         self.T_eno.delete(0,END)
+        #function to recall data
+        self.loadData()
     #Function to update employee data
     #the empNo cannot be updated!!
     def update(self):
@@ -251,10 +257,12 @@ class employee:
         #Will come back to this , cant clear combo box...
         #self.Address.delete(0,END)
 
+        self.loadData()
+
     #load data function
     def loadData(self):
         
-
+        self.emp.delete(*self.emp.get_children())
         select = "Select empno,name,stafflvl,gender,address from Person"
         mycursor.execute(select)
         result =mycursor.fetchall()
@@ -270,6 +278,8 @@ class employee:
             gender = i[3]
             address=i[4]
             self.emp.insert("",'end',text=empNo,values=(empNo,name,stafflvl,gender,address))
+        
+        
         
         mydb.commit()
         # .close() will destroy connection between application and local sever 3306

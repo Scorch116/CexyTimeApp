@@ -221,6 +221,7 @@ class rota:
        #display data function 
 
     def display_data(self):
+        self.rotaview.delete(*self.rotaview.get_children())
         #select statement to get data from DB
         select = "select person.name,shifts.mon_start,shifts.mon_end,shifts.tues_start,shifts.tues_end,shifts.wed_start,shifts.wed_end,shifts.thur_start,shifts.thur_end,shifts.fri_start,shifts.fri_end,shifts.sat_start,shifts.sat_end,shifts.sun_start,shifts.sun_end from person INNER JOIN shifts on person.empno=shifts.empID;"
         mycursor.execute(select)
@@ -260,6 +261,8 @@ class rota:
             #insert statement to inert data into treeview for dispaly
             self.rotaview.insert("",'end',text=name,values=(name,mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end))
         mydb.commit()
+
+        
     #function to perform shift swap
     def shiftSwap(self):
         
@@ -289,6 +292,7 @@ class rota:
         mycursor.execute(selectforexchange)
         mydb.commit()
         messagebox.showinfo("Info","shift updated")
+        
 
         #delete statements to clear labels 
         self.swap_empno_left.delete(0,END)
@@ -303,7 +307,11 @@ class rota:
         self.C_my_days_end_left.delete(0,END)
         self.my_end_time_left.delete(0,END)
 
+        self.display_data()
+    
 
+
+        
 
 
 rotaindex=Tk()

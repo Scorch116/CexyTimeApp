@@ -192,13 +192,7 @@ class createRota:
         mycursor.execute(update)
         mydb.commit()
         messagebox.askokcancel("INFO","Shift added")
-        #if statement to check values are not empty and to combined with insertstatment
-        #if(mon_start !="" and mon_end !="" and tues_start !="" and tues_end !="" and wed_start != "" and wed_end != "" and thur_start != "" and thur_end != "" and fri_start != "" and fri_end != "" and sat_start != "" and sat_end != "" and sun_start != "" and sun_end != ""):
-         #   Value = (mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end,empID)
-          ##  mycursor.execute(update,Value)
-           # mydb.commit()
-            #messagebox.askokcancel("Shift added")
-            #delete method added to delete labels
+        #delete statements
         self.start_Monday.delete(0,END)
         self.end_Monday.delete(0,END)
         self.start_tuesday.delete(0,END)
@@ -213,9 +207,17 @@ class createRota:
         self.end_sat.delete(0,END)
         self.start_sun.delete(0,END)
         self.end_sun.delete(0,END)
+        self.T_eno.delete(0,END)
+
+        #recall data to display
+        self.display_data()
+
+    
     #display data function 
 
     def display_data(self):
+        #method will remove previous data
+        self.createrotaview.delete(*self.createrotaview.get_children())
         #select statement to get data from DB
         select = "select person.name,shifts.mon_start,shifts.mon_end,shifts.tues_start,shifts.tues_end,shifts.wed_start,shifts.wed_end,shifts.thur_start,shifts.thur_end,shifts.fri_start,shifts.fri_end,shifts.sat_start,shifts.sat_end,shifts.sun_start,shifts.sun_end from person INNER JOIN shifts on person.empno=shifts.empID;"
         mycursor.execute(select)
