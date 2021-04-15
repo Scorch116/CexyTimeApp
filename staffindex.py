@@ -290,6 +290,21 @@ class rota:
         mydb.commit()
         messagebox.showinfo("Info","shift updated")
 
+        #delete statements to clear labels 
+        self.swap_empno_left.delete(0,END)
+        self.C_my_days_start_left.delete(0,END)
+        self.C_my_days_end_left.delete(0,END)
+        self.C_my_days_start_right.delete(0,END)
+        self.my_start_time_right.delete(0,END)
+        self.C_my_days_end_right.delete(0,END)
+        self.my_end_time_right.delete(0,END)
+        self.swap_empno_right.delete(0,END)
+        self.my_start_time.delete(0,END)
+        self.C_my_days_end_left.delete(0,END)
+        self.my_end_time_left.delete(0,END)
+
+
+
 
 rotaindex=Tk()
 object=rota(rotaindex)
