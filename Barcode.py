@@ -62,14 +62,3 @@ while camera == True: # camera will stay open for scanning (testing make sure to
     
 
 
-    
-"""
-dpempno=""
-select ="SELECT empno from Person where empno='%s'"%(string_code)
-mycursor.execute(select)
-result=mycursor.fetchall()
-for i in result:
-dpempno=i[0]
-if string_code==dpempno: 
-from index import employee
-"""
