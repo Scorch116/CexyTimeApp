@@ -222,6 +222,7 @@ class rota:
 
     def display_data(self):
         self.rotaview.delete(*self.rotaview.get_children())
+
         #select statement to get data from DB
         select = "select person.name,shifts.mon_start,shifts.mon_end,shifts.tues_start,shifts.tues_end,shifts.wed_start,shifts.wed_end,shifts.thur_start,shifts.thur_end,shifts.fri_start,shifts.fri_end,shifts.sat_start,shifts.sat_end,shifts.sun_start,shifts.sun_end from person INNER JOIN shifts on person.empno=shifts.empID;"
         mycursor.execute(select)
@@ -265,6 +266,39 @@ class rota:
         
     #function to perform shift swap
     def shiftSwap(self):
+        #setting varible for window for security check 
+        newWindow = Toplevel(rotaindex)
+        newWindow.title("CExYtime")
+        newWindow.geometry("430x220+0+0") # size of window , width then height
+
+        #Declaring main side frame 
+        mainFrame = Frame(newWindow, bd="4", bg="black", relief=RIDGE)
+        #must "place" for visibility.
+        mainFrame.place(x=0, y=0, width=430,height=220)
+
+        #label for first ID
+        L_first_username=Label(mainFrame, text="First ID", bg="black", fg="white", font=("verdana",12,"bold"))
+        L_first_username.grid(row=0, column=0, padx=25, pady=15, sticky="w")
+        #textbox entry for first ID
+        self.T_first_username=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_first_username.grid(row=0, column=1, padx=25, pady= 15, sticky="w" )
+
+        #label for second ID
+        L_second_username=Label(mainFrame, text="Second ID", bg="black", fg="white", font=("verdana",12,"bold"))
+        L_second_username.grid(row=1, column=0, padx=25, pady=15, sticky="w")
+        #textbox entry for second ID
+        self.T_second_username=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_second_username.grid(row=1, column=1, padx=25, pady= 15, sticky="w" )
+        
+
+        #Frame for buttons added
+
+        buttonFrame = Frame(mainFrame, bd="4", bg="black")
+        buttonFrame.place(x=10, y=150, width=400,height=50)
+        #buttons
+        loginbtn = Button(buttonFrame, text="CONFIRM", width=55,height=2,command=self.confirmID).grid(row=4 , column= 0 , padx=0 , pady=0)
+
+
         
         #varibale of person wanting swap
         empNowantSwap=self.swap_empno_left.get()
