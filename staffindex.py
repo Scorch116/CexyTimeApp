@@ -262,17 +262,17 @@ class rota:
             #insert statement to inert data into treeview for dispaly
             self.rotaview.insert("",'end',text=name,values=(name,mon_start,mon_end,tues_start,tues_end,wed_start,wed_end,thur_start,thur_end,fri_start,fri_end,sat_start,sat_end,sun_start,sun_end))
         mydb.commit()
+    
 
-        
-    #function to perform shift swap
-    def shiftSwap(self):
+    def securityCheck(self):
+         #----------------------SECURITY CHECK WINDOW CODE-----------------#
         #setting varible for window for security check 
-        newWindow = Toplevel(rotaindex)
-        newWindow.title("CExYtime")
-        newWindow.geometry("430x220+0+0") # size of window , width then height
+        self.newWindow = Toplevel(rotaindex)
+        self.newWindow.title("CExYtime")
+        self.newWindow.geometry("430x220+0+0") # size of window , width then height
 
         #Declaring main side frame 
-        mainFrame = Frame(newWindow, bd="4", bg="black", relief=RIDGE)
+        mainFrame = Frame(self.newWindow, bd="4", bg="black", relief=RIDGE)
         #must "place" for visibility.
         mainFrame.place(x=0, y=0, width=430,height=220)
 
@@ -290,15 +290,38 @@ class rota:
         self.T_second_username=Entry(mainFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
         self.T_second_username.grid(row=1, column=1, padx=25, pady= 15, sticky="w" )
         
-
         #Frame for buttons added
-
         buttonFrame = Frame(mainFrame, bd="4", bg="black")
         buttonFrame.place(x=10, y=150, width=400,height=50)
         #buttons
-        loginbtn = Button(buttonFrame, text="CONFIRM", width=55,height=2,command=self.confirmID).grid(row=4 , column= 0 , padx=0 , pady=0)
+        confirmBTN = Button(buttonFrame, text="CONFIRM", width=55,height=2,command=self.idcheck).grid(row=4 , column= 0 , padx=0 , pady=0)
+        
+    def idcheck(self):
+        #declaring varibles for the username entry.
+        ID1 = self.T_first_username.get()
+        ID2 = self.T_second_username.get()
+        #delete fields 
+        self.T_first_username.delete(0,END)
+        self.T_second_username.delete(0,END)
+        #sql select statement to retrieve username from database
+        select = "SELECT empNo from Person"
+        mycursor.execute(select)
+        results=mycursor.fetchall()
+        for i in results:
+            username = i[0]
+            if username == ID1 or ID2:
+                print("success")
+                self.newWindow.destroy()
+                
+            else:
+                messagebox.showinfo("Info","Error")
+                self.newWindow.destroy()
 
 
+    #function to perform shift swap
+    def shiftSwap(self):
+
+        self.securityCheck()
         
         #varibale of person wanting swap
         empNowantSwap=self.swap_empno_left.get()
@@ -340,6 +363,7 @@ class rota:
         self.my_start_time.delete(0,END)
         self.C_my_days_end_left.delete(0,END)
         self.my_end_time_left.delete(0,END)
+        
 
         self.display_data()
     
