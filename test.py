@@ -46,7 +46,7 @@ class accountCheck:
         buttonFrame = Frame(mainFrame, bd="4", bg="black")
         buttonFrame.place(x=10, y=150, width=400,height=50)
         #buttons
-        loginbtn = Button(buttonFrame, text="CONFIRM", width=55,height=2,).grid(row=4 , column= 0 , padx=0 , pady=0)
+        loginbtn = Button(buttonFrame, text="CONFIRM", width=55,height=2,command=self.confirmID).grid(row=4 , column= 0 , padx=0 , pady=0)
 
     #fucntion to confirm ID of staff for shift exchange 
     def confirmID(self):
@@ -57,6 +57,21 @@ class accountCheck:
         self.T_first_username.delete(0,END)
         self.T_second_username.delete(0,END)
         #sql select statement to retrieve username from database
+        select = "SELECT empNo from Person"
+        mycursor.execute(select)
+        results=mycursor.fetchall()
+
+        for i in results:
+            username = i
+            if username == ID1 or ID2:
+                print("success")
+            else:
+                print("error")
+        
+        
+
+
+
         
 
 
