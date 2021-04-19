@@ -1,7 +1,3 @@
-_10282_ 2021-04-19 Monday: started work at 11:39 AM
-SELECT name from Person where empNo='_10282_' 2021-04-19 Monday: started work at 11:42 AM
-[('Edward McGrath',)] 2021-04-19 Monday: started work at 11:44 AM
 [('Edward McGrath',)] : started work at 11:47 AM  , 2021-04-19 Monday
-[] : started work at 11:47 AM  , 2021-04-19 Monday
 [('John Grier',)] : started work at 11:47 AM  , 2021-04-19 Monday
 [('Jocelyn Carry',)] : started work at 11:48 AM  , 2021-04-19 Monday
