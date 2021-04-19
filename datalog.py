@@ -20,24 +20,36 @@ class datalog:
         title.pack(side=TOP, fill=X)
         
         #Declaring frame 
-        MainFrame = Frame(self.index, bd="4", bg="blue", relief=RIDGE)
+        MainFrame = Frame(self.index, bd="4", bg="white", relief=RIDGE)
         #must "place" for visibility.
         MainFrame.place(x=600, y=100, width=700,height=700)
 
+        
+        
+        #frame for text
+        self.text_widget = tk.Text(MainFrame, height=100, width=100)
+        scroll_bar = tk.Scrollbar(MainFrame,orient=VERTICAL)
+        scroll_bar.pack(side=tk.RIGHT, fill=Y)
+        self.text_widget.pack(side=tk.LEFT)
+
+        #Declaring button frame 
+        btnFrame = Frame(self.index, bd="4", bg="blue", relief=RIDGE)
+        #must "place" for visibility.
+        btnFrame.place(x=600, y=850, width=700,height=95)
+
+        refreshbtn = Button(btnFrame, text="REFRESH", width=97 ,height=5,command=self.readData).grid(row=0 , column= 0 , padx=0 , pady=0)
+
+        
+    def readData(self):
+
+        self.text_widget.delete(*self.text_widget.get_children())
         #function to open file
         datafile=open("LOGIN Time Log.txt", "r")
         readfile=datafile.read()
-        
-        #frame for text
-        text_widget = tk.Text(MainFrame, height=100, width=100)
-        scroll_bar = tk.Scrollbar(logindex)
-        scroll_bar.pack(side=tk.RIGHT)
-        text_widget.pack(side=tk.LEFT)
-
         #insert text from doc into text widget
-        text_widget.insert(tk.END,readfile)
+        self.text_widget.insert(tk.END,readfile)
 
-
+        
 
 
 
@@ -49,4 +61,5 @@ class datalog:
                  
 logindex=Tk()
 object=datalog(logindex)
+object.readData()
 logindex.mainloop()
