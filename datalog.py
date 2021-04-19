@@ -42,7 +42,7 @@ class datalog:
         
     def readData(self):
 
-        self.text_widget.delete(*self.text_widget.get_children())
+        
         #function to open file
         datafile=open("LOGIN Time Log.txt", "r")
         readfile=datafile.read()

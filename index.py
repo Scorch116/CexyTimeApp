@@ -94,11 +94,10 @@ class employee:
 
         #buttons 
         #when using grid I have start at 0 as it is a new frame.
-        add_B = Button(leftFrameBottomFrame, text="ADD", width=10 ,command= self.add).grid(row=0 , column= 0 , padx=10 , pady=15)
-        update_B = Button(leftFrameBottomFrame, text="UPDATE", width=10 ,command=self.update).grid(row=0 , column= 1 , padx=10 , pady=15)
-        delete_B = Button(leftFrameBottomFrame, text="DELETE", width=10 ,command= self.delete).grid(row=0 , column= 2 , padx=10 , pady=15)
-        clear_B = Button(leftFrameBottomFrame, text="CLEAR", width=10 ,).grid(row=0 , column= 3 , padx=10 , pady=15)
-
+        add_B = Button(leftFrameBottomFrame, text="ADD", width=10 ,command= self.add).grid(row=0 , column= 1 , padx=10 , pady=15)
+        update_B = Button(leftFrameBottomFrame, text="UPDATE", width=10 ,command=self.update).grid(row=0 , column= 2 , padx=10 , pady=15)
+        delete_B = Button(leftFrameBottomFrame, text="DELETE", width=10 ,command= self.delete).grid(row=0 , column= 3 , padx=10 , pady=15)
+       
         #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
         #RIGHT SIDE FRAME!
@@ -113,18 +112,18 @@ class employee:
         L_search.grid(row=0, column=0, padx=20, pady=10, sticky="w")
 
         #Using the combobox for drop down search by "category" e.g. empNo , Name , address.
-        C_search=ttk.Combobox(rightFrame , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
-        C_search['values']=("empNo","Name","Staff LVL", "Gender", "Address") # the values to select in the combobox!
-        C_search.grid(row=0 , column= 1 , padx=20 , pady= 10, sticky="w" )
+        self.C_search=ttk.Combobox(rightFrame , font=("verdana",12 , "bold"), state="readonly") # state needs to be read only so no text can be entered into combo box.
+        self.C_search['values']=("empNo","Name","Staff LVL", "Gender", "Address") # the values to select in the combobox!
+        self.C_search.grid(row=0 , column= 1 , padx=20 , pady= 10, sticky="w" )
 
         #Text box , to take in search vlaue for the category.
-        T_search=Entry(rightFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
-        T_search.grid(row=0, column=2, padx=20 , pady= 10, sticky="w" )
+        self.T_search=Entry(rightFrame,font=("verdana",12,"bold"), bd=5, relief=GROOVE)
+        self.T_search.grid(row=0, column=2, padx=20 , pady= 10, sticky="w" )
 
         #button for commanding search function
-        search_B = Button(rightFrame, text="Search", width=10 ,).grid(row=0 , column= 3 , padx=10 , pady=15)
+        search_B = Button(rightFrame, text="Search", width=10 , command=self.serach).grid(row=0 , column= 3 , padx=10 , pady=15)
         #Button added for showing results 
-        show_B = Button(rightFrame, text="Show", width=10 ,command=self.loadData).grid(row=0 , column= 4 , padx=10 , pady=15)
+        refresh_B = Button(rightFrame, text="Refresh", width=10 ,command=self.loadData).grid(row=0 , column= 4 , padx=10 , pady=15)
 
         #-------------------------------------------------------------------------------------------------------------------#
 
@@ -283,7 +282,36 @@ class employee:
         
         mydb.commit()
         # .close() will destroy connection between application and local sever 3306
+    
+    def serach(self):
+        #declaring entry varible
+        searchcombo = self.C_search.get()
+        serachentry = self.T_search.get()
+
+        #clear old data from treeview
+        self.emp.delete(*self.emp.get_children())
+        #select statment 
+        select = "Select empno,name,stafflvl,gender,address from Person where %s='%s'" %(searchcombo,serachentry)
+        mycursor.execute(select)
+        result =mycursor.fetchall()
+        empNo = ""
+        name = ""
+        stafflvl = ""
+        gender = ""
+        address = ""
+        for i in result:
+            empNo=i[0]
+            name =i[1]
+            stafflvl =i[2]
+            gender = i[3]
+            address=i[4]
+            self.emp.insert("",'end',text=empNo,values=(empNo,name,stafflvl,gender,address))
         
+        mydb.commit()
+
+
+
+
     #function to open create rota page  
     def loadcreateRota(self):
         from createrota import createRota
