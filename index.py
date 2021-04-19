@@ -174,7 +174,7 @@ class employee:
         BottomFrame.place(x=20, y=800, width=1730,height=180)
 
         
-        epos = Button (BottomFrame,text="Epos", width=100 ,height=3).grid(row=1 , column= 5 , padx=1 , pady=15)
+        dataLogpg = Button (BottomFrame,text="Clock in Log", width=100 ,height=3,command=self.openDatalog).grid(row=1 , column= 5 , padx=1 , pady=15)
         createShift = Button (BottomFrame,text="Create Cexy Shift", width=100 ,height=3,command=self.loadcreateRota).grid(row=2 , column= 5 , padx=500 , pady=15)
 
         
@@ -284,10 +284,16 @@ class employee:
         mydb.commit()
         # .close() will destroy connection between application and local sever 3306
         
-        #not sure how to finish will do more research on this!
+    #function to open create rota page  
     def loadcreateRota(self):
         from createrota import createRota
         print("Create rota loaded")
+    
+
+    #function to open data logpage
+    def openDatalog(self):
+        from datalog import datalog
+        print("data log opened")
     
     
 
