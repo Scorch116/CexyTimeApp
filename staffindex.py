@@ -63,7 +63,7 @@ class rota:
         #----------------------Frame for displaying data-------------------------#
         rotaFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
-        rotaFrame.place(x=100, y=200, width=1700,height=300)
+        rotaFrame.place(x=100, y=200, width=1700,height=400)
 
         #scroll bar  for table 
         #orient = the orientation , horizontial and vertical 
@@ -105,7 +105,7 @@ class rota:
         #------------------------shiftswap Frame---------------#
 
         shiftSwapFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
-        shiftSwapFrame.place(x=100, y=510, width=1700,height=360)
+        shiftSwapFrame.place(x=100, y=600, width=1700,height=400)
 
         #label out lining tool
         L_title=Label(shiftSwapFrame, text="Shift Swap tool", bg="blue", fg="white", font=("verdana",12,"bold"))
@@ -208,15 +208,16 @@ class rota:
 
 
 
-
+        """
+        Removing clock in button , seems pointless to have with tabg clock in.
         #--------------------Clock in button-----------------#
 
         clockinFrame = Frame(self.rotaindex, bd="4", bg="blue", relief=RIDGE)
         #must "place" for visibility.
         clockinFrame.place(x=100, y=890, width=1700,height=100)
         #button for clocking in 
-        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 4,command=returnTime).grid(row=0 , column= 0 , padx=10 , pady=15)
-
+        clockin_B = Button(clockinFrame, text="Clockin", width=235 ,height= 4).grid(row=0 , column= 0 , padx=10 , pady=15)
+        """
         
        #display data function 
 
@@ -321,7 +322,7 @@ class rota:
     #function to perform shift swap
     def shiftSwap(self):
 
-        self.securityCheck()
+        #self.securityCheck()
         
         #varibale of person wanting swap
         empNowantSwap=self.swap_empno_left.get()
@@ -367,6 +368,7 @@ class rota:
 
         self.display_data()
     
+   
 
 
         

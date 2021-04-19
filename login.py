@@ -9,6 +9,9 @@ from tkinter import messagebox
 from PIL import ImageTk,Image
 from tkinter import filedialog
 import os
+import datetime
+import time
+import tkinter as tk
 
 
 #varibale for SQl connector
@@ -95,6 +98,28 @@ class login:
         select = "SELECT empNo from Person where empNo='%s'" %(username)
         mycursor.execute(select)
         result=mycursor.fetchall()
+
+        # declaration of time variables so that all functions can access them
+        todaysDate = datetime.date.today()
+        hour = time.strftime("%I")
+        minute = time.strftime("%M")
+        second = time.strftime("%S")
+        AM_or_PM = time.strftime("%p")
+        which_day = time.strftime("%A")
+
+        #select statement to get name of staff from DB
+        selectName = "SELECT name from Person where empNo='%s'" %(username)
+        mycursor.execute(selectName)
+        resultName=mycursor.fetchall()
+        
+        print(resultName , "clocked in at ", datetime.datetime.today())
+        #gonna write to text file to get record of the timestamp
+        with open('LOGIN Time Log.txt', 'a+') as logger:
+            if AM_or_PM=='AM':
+                logger.write(f"{resultName} : started work at {hour}:{minute} AM  , {todaysDate} {which_day}\n")
+            else:
+                logger.write(f"{todaysDate} {which_day}: left work at {hour}:{minute} PM\n\n")
+
         #Ill keep user and pass for testing purposes and ease of access for now.
         #For loop added to run through the results of DB
         for i in result:
